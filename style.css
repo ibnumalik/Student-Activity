@@ -1,0 +1,31 @@
+.mdl-wrapper{
+  max-width: 60%;
+  margin: 0 auto;
+  padding-left: 
+}
+
+.main-content {
+    max-width: 60%;
+}
+
+/*Square Card*/
+
+.card-square.mdl-card {
+    width: 320px;
+    height: 320px;
+}
+
+.park-card > .mdl-card__title {
+    color: #fff;
+    background: url('img/red-car.png') 90% 80% no-repeat #46B6AC;
+}
+
+.seminar-card > .mdl-card__title {
+    color: #fff;
+    background: url('img/seminar-02.png') 100% 90% no-repeat #46B6AC;
+}
+
+.transcript-card > .mdl-card__title {
+    color: #fff;
+    background: url('img/transcript.png') 90% 80% no-repeat #46B6AC;
+}
