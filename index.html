@@ -7,26 +7,26 @@
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
-    <!-- Script -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.2.1/material.min.js"></script>
-    <script src="app.js"></script>
     <!-- Styling Sheet -->
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="//code.getmdl.io/1.2.1/material.teal-blue.min.css" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-red.min.css" />
     <link rel="stylesheet" href="style.css">
+    <!-- Script -->
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <script src="app.js"></script>
 </head>
 
 <body ng-app="studentPortals">
-    <div class="mdl-layout mdl-js-layout">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--scroll mdl-header-1 mdl-shadow--4dp">
-            <div class="mdl-layout__header-row mdl-wrappe" r>
+            <div class="mdl-layout__header-row mdl-wrapper">
                 <!-- Title -->
-                <a class="mdl-navigation__link" ui-sref="home"><span class="mdl-layout-title">Student Portal</span></a>
+                <a class="mdl-navigation__link" ui-sref="dashboard">
+                    <span class="mdl-layout-title">Student Portal</span></a>
             </div>
         </header>
-        <div class="ribbon"></div>
         <main class="mdl-layout__content">
             <div class="page-content">
                 <!-- Your content goes here -->
