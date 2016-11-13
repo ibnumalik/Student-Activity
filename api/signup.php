@@ -1,17 +1,31 @@
 <?php
-// $db = new PDO('sqlite:../db/portal.db');
-include '../db/config.php';
+
+include('../db/config.php');
 
 $data     = json_decode(file_get_contents("php://input"));
 $email    = $data->email;
 $password = $data->password;
+$hash_passwd = sha1($password);
 
-$q     = "INSERT INTO students (email, password) VALUES (:email, :password)";
-$query = $db->prepare($q);
-//    echo var_dump($query);
-$execute = $query->execute(array(
-    ":email"    => $email,
-    ":password" => $password,
-));
+function email_exists( $database, $item_value, $item_type ) {
+  $check = $database->query("SELECT * FROM students WHERE $item_type = '$item_value' ");
+  $check -> setFetchMode(PDO::FETCH_ASSOC);
+  $checks = $check->fetch();
 
-echo json_encode($email);
+  if ( $checks[$item_type] ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+if ( email_exists ( $db, $email, 'email' ) === true ) {
+  echo "exist";
+} else {
+    $query = $db->prepare("INSERT INTO students (email, password) VALUES (:email, :password)");
+    $query->bindparam(":email", $email);
+    $query->bindparam(":password", $hash_passwd);
+    $query->execute();
+  }
+
+?>

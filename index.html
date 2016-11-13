@@ -3,28 +3,27 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Soding challenge">
     <title>Soding Challenge</title>
     <!-- Favicon -->
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
     <!-- Styling Sheet -->
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.teal-red.min.css" />
+    <link rel="stylesheet" href="//code.getmdl.io/1.2.1/material.teal-red.min.css" />
     <link rel="stylesheet" href="style.css">
-    <!-- Script -->
-    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
 </head>
 
-<body ng-app="studentPortals">
+<body ng-app="studentPortals" ng-cloak>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
         <header class="mdl-layout__header mdl-layout__header--scroll mdl-header-1 mdl-shadow--4dp">
             <div class="mdl-layout__header-row mdl-wrapper">
                 <!-- Title -->
                 <a class="mdl-navigation__link" ui-sref="dashboard">
                     <span class="mdl-layout-title">Student Portal</span></a>
+                <div class="mdl-layout-spacer"></div>
+                
             </div>
         </header>
         <main class="mdl-layout__content">
@@ -34,6 +33,17 @@
             </div>
         </main>
     </div>
+    <!-- Lib.js -->
+    <script defer src="//code.getmdl.io/1.2.1/material.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.8/angular.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.2/angular-ui-router.min.js"></script>
+    <!-- App.js -->
+    <script src="app.module.js"></script>
+    <script src="router.js"></script>
+    <script src="controllers/app.js"></script>
+    <script src="controllers/SignupCtrl.js"></script>
+    <script src="controllers/LoginCtrl.js"></script>
+    <script src="services/authentication.js"></script>
 </body>
 
 </html>

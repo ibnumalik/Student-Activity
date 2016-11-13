@@ -1,10 +1,9 @@
-.mdl-wrapper {
-    max-width: 100%;
-    margin: 0 auto;
-    padding-left:
+/**{
+    background-color: rgba(0,0,0,0.1);
+}*/
+.test{
+    background-color: #3e3e3e;
 }
-
-
 /*
   Authentication form
  */
@@ -15,19 +14,10 @@
   text-decoration: none;
 }
 
-input:focus {
-    outline: none;
-}
-
-.dashboard-content {
-    max-width: 60%;
-}
-
-
 /*Square Card*/
 
 .card-square.mdl-card {
-    width: 320px;
+    /*width: 320px;*/
     height: 320px;
 }
 
@@ -76,4 +66,8 @@ input:focus {
 
 .parking-card-event > .mdl-card__title, .parking-card-event > .mdl-card__actions, .parking-card-event > .mdl-card__actions > .mdl-button {
     color: #fff;
+}
+
+.showError {
+    color: red;
 }
