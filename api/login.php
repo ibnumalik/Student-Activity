@@ -24,7 +24,7 @@
       ":password" => $password
     ));
 
-  echo json_encode($token);
+    echo json_encode($token);
   } else {
     echo "ERROR";
   }

@@ -41,14 +41,20 @@
 
           $http.post("api/login.php", data)
             .success( function (response) {
-              console.log(response);
-              localStorage.setItem('token', JSON.stringify(response));
-              $state.go("dashboard");
+              loginProcess(response);
             }).error( function (error) {
               console.error(error);
             });
           };
       };
+
+      var loginProcess = function (response) {
+        if ( !localStorage.setItem('token', JSON.stringify(response)) ){
+          $state.go("dashboard");
+        } else {
+            console.log("wrong");
+        }
+      }
 
     }]);
 
