@@ -23,13 +23,13 @@
           })
           .state('dashboard', {
             url: '/dashboard',
-            templateUrl: 'pages/front.html',
+            templateUrl: 'pages/dashboard.html',
             controller: 'AppCtrl as app', 
           })
           .state('parking', {
             url: '/parking',
             templateUrl: 'pages/parking.html',
-            controller: 'AppCtrl as app', 
+            controller: 'ParkingCtrl as park', 
           })
           .state('seminar', {
             url: '/seminar',
@@ -38,6 +38,16 @@
           .state('transcript', {
             url: '/transcript',
             templateUrl: 'pages/transcript.html'
+          })
+          .state('payment', {
+            url: '/payment/:number',
+            templateUrl: 'pages/payment.html',
+            controller: 'PaymentCtrl as pay'
+          })
+          .state('success', {
+            url: '/payment.success', 
+            templateUrl: 'pages/payment.success.html',
+            controller: 'PaymentCtrl as pay'
           });
       });
   

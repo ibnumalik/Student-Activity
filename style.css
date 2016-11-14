@@ -71,3 +71,43 @@
 .showError {
     color: red;
 }
+/*  Card Styling */
+.parking-space {
+    background-color: #46B6AC;
+    padding: 25px 25px 50px 25px;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+}
+.active{
+    background-color: red;
+    font-size: 30px;
+    text-align: center;
+}
+
+.billing-card{
+    background-color: #46b6ac;
+}
+.billing-card > .mdl-card__supporting-text  {
+    padding-top: 0;
+}
+.billing-card > .mdl-card__supporting-text > h4 {
+    margin-top: 0;
+}
+.billing-card > .mdl-card__title,
+.billing-card > .mdl-card__supporting-text,
+.billing-card > .mdl-card__actions,
+.billing-card > .mdl-card__actions > .mdl-button {
+    color: #fff;
+}
+.success  {
+    text-align: center;
+    color: #46b6ac;
+}
+.success > i {
+    font-size: 100px;
+}
+.veri {
+    margin-top: 30px;
+}

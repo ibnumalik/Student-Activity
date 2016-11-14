@@ -3,6 +3,8 @@
 
   angular
     .module('studentPortals', [
-      'ui.router'
+      'ui.router',
+      'ngSelect'
     ]);
+
 })();
