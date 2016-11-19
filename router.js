@@ -6,10 +6,8 @@
     .module('studentPortals')
 
     .config( function ( $stateProvider, $urlRouterProvider, $locationProvider ) {
-
         //$locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/');
-
         $stateProvider
           .state('home', {
             url: '/',
@@ -18,7 +16,7 @@
           })
           .state('register', {
             url: '/register', 
-            templateUrl: 'pages/register.html', 
+            templateUrl: 'pages/signup.html', 
             controller: 'SignupCtrl' 
           })
           .state('dashboard', {
@@ -37,10 +35,16 @@
           })
           .state('transcript', {
             url: '/transcript',
-            templateUrl: 'pages/transcript.html'
+            templateUrl: 'pages/transcript.html',
+            controller: 'TranscriptCtrl', 
           })
-          .state('payment', {
+          .state('parking-payment', {
             url: '/payment/:number',
+            templateUrl: 'pages/payment.html',
+            controller: 'PaymentCtrl as pay'
+          })
+          .state('transcript-payment', {
+            url: '/payment',
             templateUrl: 'pages/payment.html',
             controller: 'PaymentCtrl as pay'
           })

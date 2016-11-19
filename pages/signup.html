@@ -2,37 +2,37 @@
     <!-- Push content -->
     <div class="mdl-layout-spacer"></div>
     <!-- Start cards -->
-    <div class="mdl-cell mdl-cell--3-col mdl-card mdl-shadow--4dp">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--4-col-tablet mdl-cell--4-col-phone auth-form mdl-card mdl-shadow--4dp">
         <div class="mdl-card__title mdl-color--primary mdl-color-text--white">
-            <h3 class="mdl-card__title-text">Login</h3>
+            <h3 class="mdl-card__title-text">Register</h3>
         </div>
         <!-- Form Content -->
         <div class=" mdl-card__supporting-text">
-            <form name="LoginForm" method="post" role="form" novalidate>
+            <div class="showError" ng-show="existError">{{error}}</div>
+            <form name="SignupForm" method="post">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input type="email" name="email" id="email" class="mdl-textfield__input" ng-model="login.email" required>
+                    <input type="email" id="email" class="mdl-textfield__input" ng-model="signUp.email" required>
                     <label for="email" class="mdl-textfield__label">Email</label>
-                    <span ng-show="" class="mdl-textfield__error">Invalid Email</span>
+                    <span class="mdl-textfield__error">Please use email</span>
                 </div>
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                    <input type="password" name="password" id="password" class="mdl-textfield__input" ng-model="login.password" required>
+                    <input type="password" id="password" class="mdl-textfield__input" ng-model="signUp.password" required>
                     <label for="password" class="mdl-textfield__label">Password</label>
-                    <span ng-show="$invalid" class="mdl-textfield__error">Password is required</span>
                 </div>
             </form>
         </div>
         <!-- Action / Button -->
         <div class="mdl-card__actions mdl-card--border">
-            <button ng-disabled="LoginForm.$invalid" ng-click="loginUser(LoginForm.$valid)" type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--primary mdl-js-ripple-effect">Log In</button>
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--raised mdl-button--colored" ng-disabled="SignupForm.$invalid" ng-click="register(SignupForm.$valid)">Register</button>
         </div>
     </div>
     <div class="mdl-layout-spacer"></div>
 </div>
-<!-- Register link -->
+<!-- Login Link -->
 <div class="mdl-grid">
     <div class="mdl-layout-spacer"></div>
     <div class="mdl-cell mdl-cell--3-col register-button">
-        Don't have account? <a ui-sref="register">Register</a>
+        Already have account?<a ui-sref="home"> Log In</a>
     </div>
     <div class="mdl-layout-spacer"></div>
 </div>
