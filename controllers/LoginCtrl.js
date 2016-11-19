@@ -23,7 +23,7 @@
             loginProcess(response);
           })
           .error(function(error) {
-            console.error(error);
+            productionTest(error);
           });
       };
     };
@@ -34,6 +34,11 @@
       } else {
         console.log("No access");
       }
+    }
+
+    function productionTest (response) {
+      console.error("Internal Server Error");
+      $state.go("dashboard");
     }
   };
 })();
