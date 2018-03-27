@@ -4,7 +4,8 @@
   "description": "A framework to group together what student can do in the campus.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "server": "webpack-dev-server --history-api-fallback --inline --hot --progress",
+    "start": "npm run server"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,23 @@
   "bugs": {
     "url": "https://github.com/ibnumalik/Student-Activity/issues"
   },
-  "homepage": "https://github.com/ibnumalik/Student-Activity#readme"
+  "homepage": "https://github.com/ibnumalik/Student-Activity#readme",
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.15",
+    "angular": "^1.6.9",
+    "angular-animate": "^1.6.9",
+    "angular-aria": "^1.6.9",
+    "angular-material": "^1.1.8",
+    "angular-messages": "^1.6.9",
+    "ngSelect": "github:pc035860/ngSelect"
+  },
+  "devDependencies": {
+    "@types/angular": "^1.6.43",
+    "@types/angular-animate": "^1.5.9",
+    "@types/angular-material": "^1.1.58",
+    "typescript": "^2.7.2",
+    "webpack": "^4.2.0",
+    "webpack-cli": "^2.0.13",
+    "webpack-dev-server": "^3.1.1"
+  }
 }

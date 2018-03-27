@@ -1,5 +1,1 @@
-.phpintel/
-.sublime/
-
-api/signups.php
-table-sample.xlsx
+/node_modules/**
