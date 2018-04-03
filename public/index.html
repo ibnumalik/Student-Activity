@@ -7,32 +7,14 @@
     <meta name="description" content="Student Activity">
     <title>Student Activity</title>
     <!-- Favicon -->
-    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <!-- Styling Sheet -->
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
-    <link rel="stylesheet" href="//code.getmdl.io/1.2.1/material.teal-red.min.css" />
-    <link rel="stylesheet" href="style.css">
 </head>
 
-<body ng-app="studentPortals" ng-cloak>
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--scroll mdl-header-1 mdl-shadow--4dp">
-            <div class="mdl-layout__header-row mdl-wrapper">
-                <!-- Title -->
-                <a class="mdl-navigation__link" ui-sref="dashboard">
-                    <span class="mdl-layout-title">Student Portal</span></a>
-                <div class="mdl-layout-spacer"></div>
-
-            </div>
-        </header>
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <!-- Your content goes here -->
-                <div ui-view></div>
-            </div>
-        </main>
-    </div>
+<body>
+    <app-root></app-root>
 </body>
 
 </html>

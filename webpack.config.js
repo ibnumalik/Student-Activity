@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     app: [
-      './resources/js/app.ts'
+      './resources/js/index.ts'
     ]
   },
   context: __dirname + '',
@@ -14,7 +14,6 @@ module.exports = {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
     path: __dirname + '/public',
-    sourceMapFilename: 'bundle.map'
   },
   optimization: {
     splitChunks: {
@@ -36,17 +35,32 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style!css!scss!sass'
+        use: [
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
+          }
+        ]
+      },
+      {
+        test: /\.(jpg|png|gif|ico)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]'
+            }
+          }
+        ]
       },
       {
         test: /\.html$/,
         use: [
-          /* {
-            loader: 'file-loader?name=[path][name].[ext]'
-          },
-          {
-            loader: 'extract-loader',
-          }, */
           {
             loader: 'html-loader'
           }
