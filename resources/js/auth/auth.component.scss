@@ -1,4 +1,10 @@
 .auth-container {
-    width: 400px;
-    margin: auto;
+    width: 325px;
+    margin: 2rem auto;
+}
+
+.md-card--auth {
+    .md-headline {
+        margin: 0;
+    }
 }

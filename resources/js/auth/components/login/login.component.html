@@ -1,27 +1,21 @@
-<div layout="column" class="auth-container">
-    <div flex="20">
-        <md-card>
-            <md-card-header>
-                <md-card-avatar>
-                    <img src="">
-                </md-card-avatar>
-                <md-card-header-text>
-                    <span class="md-title">AngularJS</span>
-                    <span class="md-subhead">Material</span>
-                </md-card-header-text>
-            </md-card-header>
-            <img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">
-            <md-card-title>
-                <md-card-title-text>
-                    <span class="md-headline">Card header</span>
-                </md-card-title-text>
-            </md-card-title>
-            <md-card-content>
-                <p>
-                    The titles of Washed Out's breakthrough song and the first single from Paracosm share the two most important words in Ernest
-                    Greene's musical language: feel it. It's a simple request, as well...
-                </p>
-            </md-card-content>
-        </md-card>
-    </div>
+<div layout="column">
+    <md-card class="md-card--auth">
+        <md-card-title class="md-card--auth__header">
+            <md-card-title-text>
+                <h2 class="md-headline">Login</h2>
+            </md-card-title-text>
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-content>
+            <md-input-container class="md-block">
+                <label>Email</label>
+                <input ng-model="user.email">
+            </md-input-container>
+            <md-input-container class="md-block">
+                <label>Password</label>
+                <input ng-model="user.password">
+            </md-input-container>
+            <md-button class="md-accent md-raised">Log In</md-button>
+        </md-card-content>
+    </md-card>
 </div>

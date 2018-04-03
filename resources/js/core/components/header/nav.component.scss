@@ -2,9 +2,12 @@
     background: #009688;
     padding: 15px 40px;
 
+    &__logo {
+        font-size: 20px;
+    }
+
     &__item {
         color: rgba($color: #ffffff, $alpha: 0.9);
-        font-size: 20px;
         font-weight: 400;
     }
 

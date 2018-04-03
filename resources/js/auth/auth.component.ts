@@ -5,6 +5,10 @@ export class AuthComponent implements ng.IComponentOptions {
   template: string;
 
   constructor() {
-    this.template = `<div ui-view></div>`;
+    this.template = `
+      <div class="auth-container">
+        <div ui-view></div>
+      </div>
+    `;
   }
 }
