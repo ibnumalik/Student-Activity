@@ -1,0 +1,14 @@
+.navbar {
+    background: #009688;
+    padding: 15px 40px;
+
+    &__item {
+        color: rgba($color: #ffffff, $alpha: 0.9);
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    &__link {
+        text-decoration: none;
+    }
+}
