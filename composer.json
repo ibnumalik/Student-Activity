@@ -1,0 +1,13 @@
+{
+    "name": "API for Student Activity",
+    "description": "Provide a way to store data from app",
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    },
+    "require": {
+        "usmanhalalit/pixie": "^2.0",
+        "pecee/simple-router": "^4.0"
+    }
+}
