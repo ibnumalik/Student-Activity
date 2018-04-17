@@ -1,3 +1,4 @@
+import { RegisterComponent } from './components/register/register.component';
 import * as angular from "angular";
 
 /**
@@ -21,6 +22,7 @@ export const authModule =
      */
     .component(AuthComponent.NAME, new AuthComponent)
     .component(LoginComponent.NAME, new LoginComponent)
+    .component(RegisterComponent.NAME, new RegisterComponent)
 
     /**
      * Register Module Configuration

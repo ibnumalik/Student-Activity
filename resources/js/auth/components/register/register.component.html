@@ -2,7 +2,7 @@
     <md-card class="md-card--auth">
         <md-card-title class="md-card--auth__header">
             <md-card-title-text>
-                <h2 class="md-headline">Login</h2>
+                <h2 class="md-headline">Register</h2>
             </md-card-title-text>
         </md-card-title>
         <md-divider></md-divider>
@@ -15,10 +15,10 @@
                 <label>Password</label>
                 <input ng-model="$ctrl.user.password">
             </md-input-container>
-            <md-button ng-click="$ctrl.login()" class="md-accent md-raised">Log In</md-button>
+            <md-button ng-click="$ctrl.login()" class="md-accent md-raised">Register</md-button>
         </md-card-content>
     </md-card>
     <p>
-        Don't have account? <a ui-sref="app.auth.register">Register</a>
+        Already have account? <a ui-sref="app.auth.login">Log In</a>
     </p>
 </div>
