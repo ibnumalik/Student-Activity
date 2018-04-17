@@ -9,13 +9,13 @@
         <md-card-content>
             <md-input-container class="md-block">
                 <label>Email</label>
-                <input ng-model="user.email">
+                <input ng-model="$ctrl.user.email">
             </md-input-container>
             <md-input-container class="md-block">
                 <label>Password</label>
-                <input ng-model="user.password">
+                <input ng-model="$ctrl.user.password">
             </md-input-container>
-            <md-button class="md-accent md-raised">Log In</md-button>
+            <md-button ng-click="$ctrl.login()" class="md-accent md-raised">Log In</md-button>
         </md-card-content>
     </md-card>
 </div>
