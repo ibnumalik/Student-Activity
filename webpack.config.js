@@ -9,7 +9,6 @@ module.exports = {
     ]
   },
   context: __dirname + '',
-  mode: 'development',
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',

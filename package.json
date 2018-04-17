@@ -4,7 +4,8 @@
   "description": "A framework to group together what student can do in the campus.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server"
+    "dev": "webpack-dev-server --mode development",
+    "production": "webpack --mode production"
   },
   "repository": {
     "type": "git",
