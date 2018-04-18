@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: {
     app: [
-      './resources/js/index.ts'
+      './resources/app/index.ts'
     ]
   },
   context: __dirname + '',
