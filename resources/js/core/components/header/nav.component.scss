@@ -9,6 +9,9 @@
     &__item {
         color: rgba($color: #ffffff, $alpha: 0.9);
         font-weight: 400;
+        &:not(:last-child) {
+            margin-right: 1rem;
+        }
     }
 
     &__link {
