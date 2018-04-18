@@ -17,6 +17,7 @@ export class StudentComponentController implements ng.IComponentController {
       title: 'Parking',
       img: 'img/red-car.png',
       description: 'Purchase monthly parking ticket here.',
+      url: 'app.dashboard.parking',
       cta: 'Buy parking passes',
     },
     {

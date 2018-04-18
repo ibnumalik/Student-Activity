@@ -1,3 +1,4 @@
+import { ParkingComponent } from './components/parking/parking.component';
 import * as angular from "angular";
 
 /**
@@ -20,6 +21,7 @@ export const dashboardModule =
      */
     .component(DashboardComponent.NAME, new DashboardComponent)
     .component(StudentComponent.NAME, new StudentComponent)
+    .component(ParkingComponent.NAME, new ParkingComponent)
 
     /**
      * Register Module Configuration

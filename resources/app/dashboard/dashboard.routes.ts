@@ -1,3 +1,4 @@
+import { ParkingComponent } from './components/parking/parking.component';
 import { StudentComponent } from './components/student/student.component';
 import { DashboardComponent } from "./dashboard.component";
 
@@ -13,6 +14,10 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
     .state('app.dashboard.student', {
       url: '/student',
       component: StudentComponent.NAME
+    })
+    .state('app.dashboard.parking', {
+      url: '/parking',
+      component: ParkingComponent.NAME
     });
 
   $urlRouterProvider.otherwise('/app');
