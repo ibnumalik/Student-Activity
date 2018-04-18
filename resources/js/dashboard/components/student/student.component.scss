@@ -1,0 +1,14 @@
+.card {
+    .card__img {
+        align-items: flex-end;
+        border-top-left-radius: 2px;
+        border-top-right-radius: 2px;
+        display: flex;
+        height: 200px;
+        padding: 1rem;
+    }
+    .card__title {
+        color: #ffffff;
+        font-size: 1.5rem;
+    }
+}

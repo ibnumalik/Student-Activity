@@ -12,4 +12,26 @@ export class StudentComponent implements ng.IComponentOptions {
 }
 
 export class StudentComponentController implements ng.IComponentController {
+  cards = [
+    {
+      title: 'Parking',
+      img: 'img/red-car.png',
+      description: 'Purchase monthly parking ticket here.',
+      cta: 'Buy parking passes',
+    },
+    {
+      title: 'Seminar',
+      img: 'img/seminar-02.png',
+      description: 'Check seminar scheduling.',
+      cta: 'View schedule',
+    },
+    {
+      title: 'Transcript',
+      img: 'img/transcript.png',
+      description: 'Apply for physical transcript.',
+      cta: 'Request transcript',
+    }
+  ];
+  constructor() {}
+
 }

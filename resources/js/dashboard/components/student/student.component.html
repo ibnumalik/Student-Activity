@@ -1,1 +1,16 @@
-<h1>Student Dashboard</h1>
+<div layout="row">
+    <md-card flex class="card" ng-repeat="card in $ctrl.cards">
+        <div class="card__img" ng-style="{
+            'background': 'url(\'{{card.img}}\') 90% 80% no-repeat #46b6ac'
+        }">
+            <h1 class="card__title">{{ card.title }}</h1>
+        </div>
+        <md-card-title>
+            {{ card.description }}
+        </md-card-title>
+        <md-divider></md-divider>
+        <md-card-actions layout="row" layout-align="start center">
+            <md-button>{{ card.cta }}</md-button>
+        </md-card-actions>
+    </md-card>
+</div>
