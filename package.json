@@ -30,7 +30,7 @@
     "angular-aria": "^1.6.9",
     "angular-material": "^1.1.8",
     "angular-messages": "^1.6.9",
-    "ngSelect": "github:pc035860/ngSelect"
+    "ngSelect": "github:ibnumalik/ngSelect"
   },
   "devDependencies": {
     "@types/angular": "^1.6.43",

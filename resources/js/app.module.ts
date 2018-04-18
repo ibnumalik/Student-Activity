@@ -1,6 +1,7 @@
 import * as angular from "angular";
 import '@uirouter/angularjs';
 import 'angular-material';
+import 'ngSelect';
 
 /**
  * Import Module for app
@@ -13,6 +14,7 @@ export const appModule =
   angular.module('app', [
     'ui.router',
     'ngMaterial',
+    'ngSelect',
     coreModule,
     authModule,
     dashboardModule
