@@ -12,7 +12,7 @@ module.exports = {
   output: {
     filename: '[name].bundle.js',
     chunkFilename: '[name].bundle.js',
-    path: __dirname + '/public',
+    path: path.resolve(__dirname, 'public'),
   },
   optimization: {
     splitChunks: {
@@ -47,7 +47,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(jpg|png|gif|ico)$/,
+        test: /\.(jpe?g|png|gif|ico)$/,
         use: [
           {
             loader: 'file-loader',
@@ -69,7 +69,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: __dirname + '/public/index.html'
+      template: path.resolve(__dirname, 'public/index.html')
     })
   ],
   resolve: {
