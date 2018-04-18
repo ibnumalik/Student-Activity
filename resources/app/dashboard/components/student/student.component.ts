@@ -24,6 +24,7 @@ export class StudentComponentController implements ng.IComponentController {
       title: 'Seminar',
       img: 'img/seminar-02.png',
       description: 'Check seminar scheduling.',
+      url: 'app.dashboard.seminar',
       cta: 'View schedule',
     },
     {
