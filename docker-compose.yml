@@ -11,7 +11,7 @@ services:
     php:
         image: php:7-fpm
         volumes:
-            - .:/usr/share/nginx/html:ro
+            - .:/usr/share/nginx/html
     composer:
         image: composer/composer:php7
         command: install --ignore-platform-reqs
