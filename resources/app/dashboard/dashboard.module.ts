@@ -1,3 +1,4 @@
+import { TranscriptComponent } from './components/transcript/transcript.component';
 import { SeminarComponent } from './components/seminar/seminar.component';
 import { ParkingComponent } from './components/parking/parking.component';
 import * as angular from "angular";
@@ -24,6 +25,7 @@ export const dashboardModule =
     .component(StudentComponent.NAME, new StudentComponent)
     .component(ParkingComponent.NAME, new ParkingComponent)
     .component(SeminarComponent.NAME, new SeminarComponent)
+    .component(TranscriptComponent.NAME, new TranscriptComponent)
 
     /**
      * Register Module Configuration

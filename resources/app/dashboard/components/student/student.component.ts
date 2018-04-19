@@ -31,6 +31,7 @@ export class StudentComponentController implements ng.IComponentController {
       title: 'Transcript',
       img: 'img/transcript.png',
       description: 'Apply for physical transcript.',
+      url: 'app.dashboard.transcript',
       cta: 'Request transcript',
     }
   ];

@@ -2,6 +2,7 @@ import { SeminarComponent } from './components/seminar/seminar.component';
 import { ParkingComponent } from './components/parking/parking.component';
 import { StudentComponent } from './components/student/student.component';
 import { DashboardComponent } from "./dashboard.component";
+import { TranscriptComponent } from './components/transcript/transcript.component';
 
 export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
   'ngInject';
@@ -23,6 +24,10 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
     .state('app.dashboard.seminar', {
       url: '/seminar',
       component: SeminarComponent.NAME
+    })
+    .state('app.dashboard.transcript', {
+      url: '/transcript',
+      component: TranscriptComponent.NAME
     });
 
   $urlRouterProvider.otherwise('/app');
