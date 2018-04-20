@@ -30,7 +30,7 @@ class AuthController
             'role' => 'student'
         ]);
 
-        return 'success';
+        return json_encode(['status' => 'success']);
     }
 
     private function isEmailExist($email)

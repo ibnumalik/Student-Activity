@@ -1,7 +1,7 @@
 export class RegisterComponent implements ng.IComponentOptions {
-  static NAME:string = 'appRegister';
+  static NAME: string = 'appRegister';
   template: any;
-  controllerAs:string;
+  controllerAs: string;
   controller;
 
   constructor() {
@@ -31,9 +31,9 @@ class RegisterController implements ng.IComponentController {
       'http://localhost:8080/api/register',
       this.httpParamSerializerJQLike(this.user),
       {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
       }
     ).then(response => {
       console.log(response.data);
@@ -43,8 +43,9 @@ class RegisterController implements ng.IComponentController {
         return;
       }
 
-      this.$state.go('app.dashboard.student');
+      if (response.data['status'] === 'success') {
+        this.$state.go('app.dashboard.student');
+      }
     })
-
   }
 }
