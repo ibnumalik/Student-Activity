@@ -7,15 +7,29 @@
         </md-card-title>
         <md-divider></md-divider>
         <md-card-content>
-            <md-input-container class="md-block">
-                <label>Email</label>
-                <input ng-model="$ctrl.user.email">
-            </md-input-container>
-            <md-input-container class="md-block">
-                <label>Password</label>
-                <input ng-model="$ctrl.user.password">
-            </md-input-container>
-            <md-button ng-click="$ctrl.login()" class="md-accent md-raised">Register</md-button>
+            <form name="register" ng-submit="register.$valid && $ctrl.register()" novalidate>
+                <div class="form-error" ng-show="$ctrl.emailUsed">
+                    Email has been registered
+                </div>
+                <md-input-container class="md-block">
+                    <label>Email</label>
+                    <input type="email" ng-model="$ctrl.user.email" name="email" required>
+                    <div ng-messages="register.email.$error">
+                        <div ng-message="required"> Email is required </div>
+                        <div ng-message="email"> Please enter valid email </div>
+                    </div>
+                </md-input-container>
+                <md-input-container class="md-block">
+                    <label>Password</label>
+                    <input type="password" ng-model="$ctrl.user.password" name="password" required>
+                    <div ng-messages="register.password.$error">
+                        <div ng-message="required"> Password is required </div>
+                    </div>
+                </md-input-container>
+                <md-button type="submit" class="md-accent md-raised" ng-disabled="register.$invalid">
+                    Register
+                </md-button>
+            </form>
         </md-card-content>
     </md-card>
     <p>

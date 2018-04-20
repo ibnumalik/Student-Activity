@@ -2,6 +2,7 @@ import * as angular from "angular";
 import '@uirouter/angularjs';
 import 'angular-material';
 import 'ngSelect';
+import 'angular-messages';
 
 /**
  * Import Module for app
@@ -14,6 +15,7 @@ export const appModule =
   angular.module('app', [
     'ui.router',
     'ngMaterial',
+    'ngMessages',
     'ngSelect',
     coreModule,
     authModule,

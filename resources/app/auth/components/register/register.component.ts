@@ -12,12 +12,31 @@ export class RegisterComponent implements ng.IComponentOptions {
 }
 
 class RegisterController implements ng.IComponentController {
-  static $inject = ['$http'];
+  static $inject = ['$http', '$state'];
   title: string;
   user;
+  emailUsed = false;
 
-  constructor(private http: ng.IHttpService) {
+  constructor(private http: ng.IHttpService, private $state: ng.ui.IStateService) {
     this.title = "Register Page";
     this.user = {};
+  }
+
+  register() {
+    this.http.post('http://localhost:8080/api/register', this.user, {
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded'
+      }
+    }).then(response => {
+      console.log(response.data);
+
+      if (response.data === 'email already used') {
+        this.emailUsed = true;
+        return;
+      }
+
+      this.$state.go('app.dashboard.student');
+    })
+
   }
 }
