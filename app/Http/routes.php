@@ -10,6 +10,7 @@ Route::group(['prefix' => '/api'], function() {
     });
 
     Route::post('/login', 'AuthController@login');
+    Route::post('/register', 'AuthController@register');
 });
 
 Route::error(function(Request $request, \Exception $exception) {
