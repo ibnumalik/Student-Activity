@@ -18,4 +18,9 @@ class App
         }
         return static::$registry[$key];
     }
+
+    public static function getRegisteredKeys()
+    {
+        return array_keys(static::$registry);
+    }
 }
