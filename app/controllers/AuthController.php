@@ -6,8 +6,35 @@ class AuthController
 {
     public function login()
     {
-        var_dump(input());
-        return $input;
+        $email = input('email');
+        $password = input('password');
+
+        // implement validation
+        // if (!$this->isValid([$email, $password]))
+        // {
+        //     return 'form is not valid';
+        // }
+
+        $user = \Builder::table('users')->where('email', $email)->first();
+
+        if (is_null($user)) {
+            return json_encode([
+                'status' => 'fail',
+                'message' => 'the email does not exist in database'
+            ]);
+        }
+
+        if (!password_verify($password, $user->password)) {
+            return json_encode([
+                'status' => 'fail',
+                'message' => 'wrong password'
+            ]);
+        }
+
+        $token = $email.'|'.uniqid().uniqid().uniqid();
+        \Builder::table('users')->where('email', $email)->update(['token' => $token]);
+
+        return json_encode(['status' => 'success', 'token' => $token]);
     }
 
     public function register()

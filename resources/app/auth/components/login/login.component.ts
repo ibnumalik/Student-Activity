@@ -12,22 +12,35 @@ export class LoginComponent implements ng.IComponentOptions {
 }
 
 class LoginController implements ng.IComponentController {
-  static $inject = ['$http'];
+  static $inject = ['$http', '$state', '$httpParamSerializerJQLike'];
   title: string;
   user;
+  error = false;
 
-  constructor(private http: ng.IHttpService) {
+  constructor(
+    private http: ng.IHttpService,
+    private $state: ng.ui.IStateService,
+    private httpParamSerializerJQLike: ng.IHttpParamSerializer
+  ) {
     this.title = "Login Page";
     this.user = {};
   }
 
   login() {
-    this.http.post('http://local.studentapi.com/api/login', this.user, {
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    this.http.post(
+      'http://localhost:8080/api/login',
+      this.httpParamSerializerJQLike(this.user),
+      {
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        }
       }
-    }).then(response => {
-      console.log(response);
+    ).then(response => {
+      if (response.data['status'] === 'success') {
+        this.$state.go('app.dashboard.student');
+      } else {
+        this.error = true;
+      }
     });
   }
 }
