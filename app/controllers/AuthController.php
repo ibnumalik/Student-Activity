@@ -14,8 +14,14 @@ class AuthController
     {
         $inputs = input()->all(['email', 'password']);
 
-        if (!$this->isValid($inputs) || $this->isEmailExist($inputs['email'])) {
-            return 'fail';
+        if (!$this->isValid($inputs))
+        {
+            return 'form is not valid';
+        }
+
+        if ($this->isEmailExist($inputs['email']))
+        {
+            return 'email already used';
         }
 
         \Builder::table('users')->insert([
