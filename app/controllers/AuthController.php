@@ -26,7 +26,7 @@ class AuthController
 
         \Builder::table('users')->insert([
             'email' => $inputs['email'],
-            'password' => sha1($inputs['email']),
+            'password' => password_hash($inputs['password'], PASSWORD_DEFAULT),
             'role' => 'student'
         ]);
 
@@ -41,7 +41,7 @@ class AuthController
     /**
      * Check if array has falsy values
      *
-     * @param arrays $inputs
+     * @param array $inputs
      * @return boolean
      */
     private function isValid($inputs)
