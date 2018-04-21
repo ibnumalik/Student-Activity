@@ -16,4 +16,4 @@ services:
         image: composer/composer:php7
         command: install --ignore-platform-reqs
         volumes:
-            - .:/api
+            - .:/app
