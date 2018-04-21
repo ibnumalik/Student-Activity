@@ -18,15 +18,13 @@ class AuthController
         $user = $this->table()->where('email', $email)->first();
 
         if (is_null($user)) {
-            return json_encode([
-                'status' => 'fail',
+            return Response::json('fail', [
                 'message' => 'the email does not exist in database'
             ]);
         }
 
         if (!password_verify($password, $user->password)) {
-            return json_encode([
-                'status' => 'fail',
+            return Response::json('fail', [
                 'message' => 'wrong password'
             ]);
         }
@@ -34,7 +32,7 @@ class AuthController
         $token = $this->generateToken($email);
         $this->table()->where('email', $email)->update(['token' => $token]);
 
-        return json_encode(['status' => 'success', 'token' => $token]);
+        return Response::json('success', ['token' => $token]);
     }
 
     public function register()
@@ -43,12 +41,12 @@ class AuthController
 
         if (!$this->isValid($inputs))
         {
-            return 'form is not valid';
+            return Response::json('fail', ['message' => 'form is not valid']);
         }
 
         if ($this->isEmailExist($inputs['email']))
         {
-            return 'email already used';
+            return Response::json('fail', ['message' => 'email already used']);
         }
 
         $this->table()->insert([
@@ -57,7 +55,7 @@ class AuthController
             'role' => 'student'
         ]);
 
-        return json_encode(['status' => 'success']);
+        return Response::json('success');
     }
 
     public function logout()
@@ -67,12 +65,14 @@ class AuthController
 
         if (empty($token) || empty($users))
         {
-            return json_encode(['status' => 'fail']);
+            return Response::json('fail', [
+                'message' => 'already logged out'
+            ]);
         }
 
         $this->table()->where('token', $token)->update(['token' => 'LOGGED OUT']);
 
-        return json_encode(['status' => 'success']);
+        return Response::json('success');
     }
 
     private function table()
