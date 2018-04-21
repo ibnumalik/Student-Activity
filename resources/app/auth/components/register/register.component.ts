@@ -44,7 +44,7 @@ class RegisterController implements ng.IComponentController {
       }
 
       if (response.data['status'] === 'success') {
-        this.$state.go('app.dashboard.student');
+        this.$state.go('app.auth.login');
       }
     })
   }
