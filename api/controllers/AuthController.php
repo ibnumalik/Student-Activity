@@ -67,6 +67,21 @@ class AuthController
         return json_encode(['status' => 'success']);
     }
 
+    public function logout()
+    {
+        $token = input('token');
+        $users = $this->table->where('token', $token)->get();
+
+        if (empty($token) || empty($users))
+        {
+            return json_encode(['status' => 'fail']);
+        }
+
+        $this->table->where('token', $token)->update(['token' => 'LOGGED OUT']);
+
+        return json_encode(['status' => 'success']);
+    }
+
     private function isEmailExist($email)
     {
         return !is_null(\Builder::table('users')->where('email', '=', $email)->first());

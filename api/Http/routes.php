@@ -11,6 +11,7 @@ Route::group(['prefix' => '/api'], function() {
 
     Route::post('/login', 'AuthController@login');
     Route::post('/register', 'AuthController@register');
+    Route::post('logout', 'AuthController@logout');
 });
 
 Route::error(function(Request $request, \Exception $exception) {
