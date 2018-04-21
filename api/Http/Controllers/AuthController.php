@@ -38,8 +38,7 @@ class AuthController
             ]);
         }
 
-        $token = $email.'|'.uniqid().uniqid().uniqid();
-        \Builder::table('users')->where('email', $email)->update(['token' => $token]);
+        $token = $this->generateToken($email);
 
         return json_encode(['status' => 'success', 'token' => $token]);
     }
@@ -80,6 +79,11 @@ class AuthController
         $this->table->where('token', $token)->update(['token' => 'LOGGED OUT']);
 
         return json_encode(['status' => 'success']);
+    }
+
+    private function generateToken($email)
+    {
+        return $email.'|'.uniqid().uniqid().uniqid();
     }
 
     private function isEmailExist($email)
