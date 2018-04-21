@@ -4,6 +4,13 @@ namespace App\Controllers;
 
 class AuthController
 {
+    private $table;
+
+    public function __construct()
+    {
+        $this->table = \Builder::table('users');
+    }
+
     public function login()
     {
         $email = input('email');
