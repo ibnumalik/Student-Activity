@@ -1,5 +1,5 @@
-<div layout="row">
-    <md-card flex class="card" ng-repeat="card in $ctrl.cards">
+<div layout="row" layout-wrap>
+    <md-card flex flex-xs="100" class="card" ng-repeat="card in $ctrl.cards">
         <div class="card__img" ng-style="{
             'background': 'url(\'{{card.img}}\') 90% 80% no-repeat #46b6ac'
         }">
