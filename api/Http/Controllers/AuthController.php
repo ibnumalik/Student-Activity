@@ -4,13 +4,6 @@ namespace App\Http\Controllers;
 
 class AuthController
 {
-    private $table;
-
-    public function __construct()
-    {
-        $this->table = \Builder::table('users');
-    }
-
     public function login()
     {
         $email = input('email');
@@ -22,7 +15,7 @@ class AuthController
         //     return 'form is not valid';
         // }
 
-        $user = \Builder::table('users')->where('email', $email)->first();
+        $user = $this->table()->where('email', $email)->first();
 
         if (is_null($user)) {
             return json_encode([
@@ -39,6 +32,7 @@ class AuthController
         }
 
         $token = $this->generateToken($email);
+        $this->table()->where('email', $email)->update(['token' => $token]);
 
         return json_encode(['status' => 'success', 'token' => $token]);
     }
@@ -57,7 +51,7 @@ class AuthController
             return 'email already used';
         }
 
-        \Builder::table('users')->insert([
+        $this->table()->insert([
             'email' => $inputs['email'],
             'password' => password_hash($inputs['password'], PASSWORD_DEFAULT),
             'role' => 'student'
@@ -69,16 +63,21 @@ class AuthController
     public function logout()
     {
         $token = input('token');
-        $users = $this->table->where('token', $token)->get();
+        $users = $this->table()->where('token', $token)->get();
 
         if (empty($token) || empty($users))
         {
             return json_encode(['status' => 'fail']);
         }
 
-        $this->table->where('token', $token)->update(['token' => 'LOGGED OUT']);
+        $this->table()->where('token', $token)->update(['token' => 'LOGGED OUT']);
 
         return json_encode(['status' => 'success']);
+    }
+
+    private function table()
+    {
+        return \Builder::table('users');
     }
 
     private function generateToken($email)
@@ -88,7 +87,7 @@ class AuthController
 
     private function isEmailExist($email)
     {
-        return !is_null(\Builder::table('users')->where('email', '=', $email)->first());
+        return !is_null($this->table()->where('email', '=', $email)->first());
     }
 
     /**
