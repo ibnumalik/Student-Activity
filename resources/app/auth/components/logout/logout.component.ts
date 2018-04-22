@@ -8,17 +8,18 @@ export class LogoutComponent implements ng.IComponentOptions {
 }
 
 class LogoutController implements ng.IComponentController {
-  static $inject = ['$http', '$state', '$httpParamSerializerJQLike', '$window'];
   title: string;
   token;
   emailUsed = false;
 
   constructor(
-    private http: ng.IHttpService,
+    private $http: ng.IHttpService,
     private $state: ng.ui.IStateService,
-    private httpParamSerializerJQLike: ng.IHttpParamSerializer,
+    private $httpParamSerializerJQLike: ng.IHttpParamSerializer,
     private $window: ng.IWindowService
   ) {
+    'ngInject';
+
     this.token = {
       token: this.$window.localStorage.getItem('token')
     };
@@ -29,9 +30,9 @@ class LogoutController implements ng.IComponentController {
   }
 
   logout() {
-    this.http.post(
+    this.$http.post(
       'http://localhost:8080/api/logout',
-      this.httpParamSerializerJQLike(this.token),
+      this.$httpParamSerializerJQLike(this.token),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'

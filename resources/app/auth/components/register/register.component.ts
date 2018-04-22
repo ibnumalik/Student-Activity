@@ -23,25 +23,26 @@ export class RegisterComponent implements ng.IComponentOptions {
 }
 
 class RegisterController implements ng.IComponentController {
-  static $inject = ['$http', '$state', '$httpParamSerializerJQLike', '$timeout'];
   title: string;
   user;
   emailUsed = false;
 
   constructor(
-    private http: ng.IHttpService,
+    private $http: ng.IHttpService,
     private $state: ng.ui.IStateService,
-    private httpParamSerializerJQLike: ng.IHttpParamSerializer,
+    private $httpParamSerializerJQLike: ng.IHttpParamSerializer,
     private $timeout: ng.ITimeoutService
   ) {
+    'ngInject';
+
     this.title = "Register Page";
     this.user = {};
   }
 
   register() {
-    this.http.post(
+    this.$http.post(
       'http://localhost:8080/api/register',
-      this.httpParamSerializerJQLike(this.user),
+      this.$httpParamSerializerJQLike(this.user),
       {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
