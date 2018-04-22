@@ -9,12 +9,14 @@
         </a>
     </div>
     <div class="navbar__right">
-        <a ui-sref="app.auth.login" class="navbar__item navbar__link">
+        <a ui-sref="app.auth.login" class="navbar__item navbar__link" ng-show="!$ctrl.loggedIn">
             Login
         </a>
-        <a ui-sref="app.auth.logout" class="navbar__item navbar__link">
-            Log out
-        </a>
-        <a ui-sref="app.dashboard.student" class="navbar__item navbar__link">Dashboard</a>
+        <div ng-show="$ctrl.loggedIn">
+            <a ui-sref="app.dashboard.student" class="navbar__item navbar__link">Dashboard</a>
+            <a ui-sref="app.auth.logout" class="navbar__item navbar__link">
+                Log out
+            </a>
+        </div>
     </div>
 </div>
