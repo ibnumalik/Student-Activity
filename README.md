@@ -5,7 +5,7 @@ This is simple system for student with three different purposes.
 3. They can order official transcript.
 
 # 2. Usage
-To use this system, students have to register, and then they will redirected to login pages. 
+To use this system, students have to register, and then they will redirected to login pages.
 After registration they can login and authenticated by the system, which will store token in localStorage.
 After logging in they will redirected to the dashboard and there will be three options to choose which is:
 1. Go to purchase parking spaces for one month.
@@ -19,3 +19,8 @@ After logging in they will redirected to the dashboard and there will be three o
 
 # 4. Conclusion
 Building this system is fairly easy because there is not much going on behind the scene. But it can be improved by adding security layer in authentication such as using JWT. This system also can be improved by building a student profile which has several database table and make a relational between them. For example, by creating a table student, parking, seminar schedule and transcript, we can link them together by creating relationship. This can create a more dynamic system.
+
+# Todo
+
+- [ ] Separate HTTP call in component to service
+- [ ] Upgrade ng-annotate-loader to babel-plugin-angularjs-annotate
