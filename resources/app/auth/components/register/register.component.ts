@@ -23,7 +23,7 @@ export class RegisterComponent implements ng.IComponentOptions {
 }
 
 class RegisterController implements ng.IComponentController {
-  static $inject = ['$http', '$state', '$httpParamSerializerJQLike'];
+  static $inject = ['$http', '$state', '$httpParamSerializerJQLike', '$timeout'];
   title: string;
   user;
   emailUsed = false;
@@ -31,7 +31,8 @@ class RegisterController implements ng.IComponentController {
   constructor(
     private http: ng.IHttpService,
     private $state: ng.ui.IStateService,
-    private httpParamSerializerJQLike: ng.IHttpParamSerializer
+    private httpParamSerializerJQLike: ng.IHttpParamSerializer,
+    private $timeout: ng.ITimeoutService
   ) {
     this.title = "Register Page";
     this.user = {};
@@ -46,17 +47,21 @@ class RegisterController implements ng.IComponentController {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
       }
-    ).then(response => {
-      console.log(response.data);
+    ).then((response: ResponseRegister) => {
 
-      if (response.data === 'email already used') {
+      if (response.data.data && response.data.data.message === 'email already used') {
         this.emailUsed = true;
+        this.hideError();
         return;
       }
 
-      if (response.data['status'] === 'success') {
+      if (response.data.status === 'success') {
         this.$state.go('app.auth.login');
       }
     })
+  }
+
+  hideError() {
+    this.$timeout(() => this.emailUsed = false, 7000);
   }
 }

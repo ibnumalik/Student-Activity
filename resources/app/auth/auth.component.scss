@@ -13,4 +13,13 @@
     color: rgb(221,44,0);
     margin: 0.25rem 0 2rem;
     text-align: center;
+
+    &.ng-hide {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    &.ng-hide-add, &.ng-hide-remove {
+        transition: all linear 0.5s;
+    }
 }
