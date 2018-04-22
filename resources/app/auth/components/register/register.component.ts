@@ -1,3 +1,14 @@
+import { IHttpResponse } from "angular";
+
+export interface ResponseRegister extends IHttpResponse<object> {
+  data: {
+    data: {
+      message: string;
+    };
+    status: string;
+  };
+}
+
 export class RegisterComponent implements ng.IComponentOptions {
   static NAME: string = 'appRegister';
   template: any;
