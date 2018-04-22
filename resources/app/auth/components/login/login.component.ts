@@ -1,3 +1,15 @@
+import { IWindowService, ITimeoutService, IHttpResponse } from "angular";
+
+export interface IHttpLoginResponse extends IHttpResponse <object> {
+  data: {
+    data: {
+      token: string;
+      message: string;
+    },
+    status: string;
+  }
+}
+
 export class LoginComponent implements ng.IComponentOptions {
   static NAME:string = 'appLogin';
   template: any;
@@ -12,7 +24,7 @@ export class LoginComponent implements ng.IComponentOptions {
 }
 
 class LoginController implements ng.IComponentController {
-  static $inject = ['$http', '$state', '$httpParamSerializerJQLike'];
+  static $inject = ['$http', '$state', '$httpParamSerializerJQLike', '$timeout', '$window'];
   title: string;
   user;
   error = false;
@@ -20,7 +32,9 @@ class LoginController implements ng.IComponentController {
   constructor(
     private http: ng.IHttpService,
     private $state: ng.ui.IStateService,
-    private httpParamSerializerJQLike: ng.IHttpParamSerializer
+    private httpParamSerializerJQLike: ng.IHttpParamSerializer,
+    private $timeout: ITimeoutService,
+    private $window: IWindowService
   ) {
     this.title = "Login Page";
     this.user = {};
@@ -35,12 +49,21 @@ class LoginController implements ng.IComponentController {
           'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
       }
-    ).then(response => {
-      if (response.data['status'] === 'success') {
-        this.$state.go('app.dashboard.student');
-      } else {
-        this.error = true;
+    ).then((response: IHttpLoginResponse) => {
+
+      if (
+        response.data.data.message === 'the email does not exist in database' ||
+        response.data.data.message === 'wrong password'
+      ) {
+        this.error = true; this.hideError(); return;
       }
+
+      this.$state.go('app.dashboard.student');
+      this.$window.localStorage.setItem('token', response.data.data.token);
     });
+  }
+
+  hideError() {
+    this.$timeout(() => this.error = false, 7000);
   }
 }
