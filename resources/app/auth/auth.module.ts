@@ -1,3 +1,4 @@
+import { AuthService } from './services/auth.service';
 import { LogoutComponent } from './components/logout/logout.component';
 import { RegisterComponent } from './components/register/register.component';
 import * as angular from "angular";
@@ -25,6 +26,7 @@ export const authModule =
     .component(LoginComponent.NAME, new LoginComponent)
     .component(RegisterComponent.NAME, new RegisterComponent)
     .component(LogoutComponent.NAME, new LogoutComponent)
+    .factory(AuthService.NAME, AuthService.factory())
 
     /**
      * Register Module Configuration
