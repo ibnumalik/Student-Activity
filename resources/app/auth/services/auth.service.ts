@@ -1,3 +1,7 @@
+export interface IAuthService {
+  isLoggedIn();
+}
+
 export class AuthService {
   static NAME = 'AuthService';
 
