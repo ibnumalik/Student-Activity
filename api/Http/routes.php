@@ -9,8 +9,8 @@ Route::group(['prefix' => '/api'], function() {
         return 'API Secret';
     });
 
-    Route::post('/login', 'AuthController@login');
-    Route::post('/register', 'AuthController@register');
+    Route::post('login', 'AuthController@login');
+    Route::post('register', 'AuthController@register');
     Route::post('logout', 'AuthController@logout');
 });
 
