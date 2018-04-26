@@ -1,19 +1,12 @@
+import { IAuthService, IHttpRegisterResponse } from './../../auth';
+import { AuthService } from './../../services/auth.service';
 import { IHttpResponse } from "angular";
 
-export interface ResponseRegister extends IHttpResponse<object> {
-  data: {
-    data: {
-      message: string;
-    };
-    status: string;
-  };
-}
-
 export class RegisterComponent implements ng.IComponentOptions {
-  static NAME: string = 'appRegister';
-  template: any;
-  controllerAs: string;
-  controller;
+  static NAME = 'appRegister';
+  public template;
+  public controllerAs;
+  public controller;
 
   constructor() {
     this.template = require('./register.component.html');
@@ -23,14 +16,13 @@ export class RegisterComponent implements ng.IComponentOptions {
 }
 
 class RegisterController implements ng.IComponentController {
-  title: string;
-  user;
-  emailUsed = false;
+  public title;
+  public user;
+  public emailUsed = false;
 
   constructor(
-    private $http: ng.IHttpService,
+    private AuthService: IAuthService,
     private $state: ng.ui.IStateService,
-    private $httpParamSerializerJQLike: ng.IHttpParamSerializer,
     private $timeout: ng.ITimeoutService
   ) {
     'ngInject';
@@ -40,26 +32,20 @@ class RegisterController implements ng.IComponentController {
   }
 
   register() {
-    this.$http.post(
-      'http://localhost:8080/api/register',
-      this.$httpParamSerializerJQLike(this.user),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
+
+    this.AuthService.register(this.user)
+      .then((response: IHttpRegisterResponse) => {
+
+        if (response.data && response.data.message === 'email already used') {
+          this.emailUsed = true;
+          this.hideError();
+          return;
         }
-      }
-    ).then((response: ResponseRegister) => {
 
-      if (response.data.data && response.data.data.message === 'email already used') {
-        this.emailUsed = true;
-        this.hideError();
-        return;
-      }
-
-      if (response.data.status === 'success') {
-        this.$state.go('app.auth.login');
-      }
-    })
+        if (response.status === 'success') {
+          this.$state.go('app.auth.login');
+        }
+      });
   }
 
   hideError() {

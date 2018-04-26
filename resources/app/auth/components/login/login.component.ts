@@ -1,20 +1,12 @@
-import { IWindowService, ITimeoutService, IHttpResponse } from "angular";
-
-export interface IHttpLoginResponse extends IHttpResponse <object> {
-  data: {
-    data: {
-      token: string;
-      message: string;
-    },
-    status: string;
-  }
-}
+import { IWindowService, ITimeoutService } from "angular";
+import { AuthService } from './../../services/auth.service';
+import { IAuthService, IHttpLoginResponse } from './../../auth';
 
 export class LoginComponent implements ng.IComponentOptions {
-  static NAME:string = 'appLogin';
-  template: any;
-  controllerAs:string;
-  controller;
+  static NAME = 'appLogin';
+  public template;
+  public controllerAs;
+  public controller;
 
   constructor() {
     this.template = require('./login.component.html');
@@ -24,14 +16,13 @@ export class LoginComponent implements ng.IComponentOptions {
 }
 
 class LoginController implements ng.IComponentController {
-  title: string;
-  user;
-  error = false;
+  private title;
+  private user;
+  private error = false;
 
   constructor(
-    private $http: ng.IHttpService,
+    private AuthService: IAuthService,
     private $state: ng.ui.IStateService,
-    private $httpParamSerializerJQLike: ng.IHttpParamSerializer,
     private $timeout: ITimeoutService,
     private $window: IWindowService
   ) {
@@ -42,26 +33,20 @@ class LoginController implements ng.IComponentController {
   }
 
   login() {
-    this.$http.post(
-      'http://localhost:8080/api/login',
-      this.$httpParamSerializerJQLike(this.user),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+
+    this.AuthService.login(this.user)
+      .then((response: IHttpLoginResponse) => {
+
+        if (
+          response.data.message === 'the email does not exist in database' ||
+          response.data.message === 'wrong password'
+        ) {
+          this.error = true; this.hideError(); return;
         }
-      }
-    ).then((response: IHttpLoginResponse) => {
 
-      if (
-        response.data.data.message === 'the email does not exist in database' ||
-        response.data.data.message === 'wrong password'
-      ) {
-        this.error = true; this.hideError(); return;
-      }
-
-      this.$state.go('app.dashboard.student');
-      this.$window.localStorage.setItem('token', response.data.data.token);
-    });
+        this.$state.go('app.dashboard.student');
+        this.$window.localStorage.setItem('token', response.data.token);
+      });
   }
 
   hideError() {
