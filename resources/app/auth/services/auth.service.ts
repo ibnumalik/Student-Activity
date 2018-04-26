@@ -26,6 +26,15 @@ export class AuthService {
     return this.$window.localStorage.getItem('token') !== null;
   }
 
+  register(user) {
+    return this.$http.post(
+      this.url + '/register',
+      this.$httpParamSerializerJQLike(user),
+      this.config
+    )
+      .then(response => response.data);
+  }
+
   login(user) {
 
     return this.$http.post(
