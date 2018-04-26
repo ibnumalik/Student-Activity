@@ -1,4 +1,5 @@
-import { AuthService, IAuthService } from './../../../auth/services/auth.service';
+import { IAuthService } from './../../../auth/auth';
+import { AuthService } from './../../../auth/services/auth.service';
 import './app.component.scss';
 
 export class App implements ng.IComponentOptions {
