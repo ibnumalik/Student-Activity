@@ -2,6 +2,7 @@ export interface IAuthService {
     isLoggedIn();
     register(user);
     login(user);
+    logout(token);
 }
 
 export interface IHttpRegisterResponse {
@@ -16,5 +17,9 @@ export interface IHttpLoginResponse {
         token: string;
         message: string;
     },
+    status: string;
+}
+
+export interface IHttpLogoutResponse {
     status: string;
 }

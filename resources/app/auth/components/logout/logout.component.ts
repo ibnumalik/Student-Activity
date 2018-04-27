@@ -1,6 +1,9 @@
+import { IAuthService, IHttpLogoutResponse } from './../../auth';
+import { AuthService } from './../../services/auth.service';
+
 export class LogoutComponent implements ng.IComponentOptions {
-  static NAME: string = 'appLogout';
-  controller;
+  static NAME = 'appLogout';
+  public controller;
 
   constructor() {
     this.controller = LogoutController;
@@ -8,20 +11,19 @@ export class LogoutComponent implements ng.IComponentOptions {
 }
 
 class LogoutController implements ng.IComponentController {
-  title: string;
-  token;
-  emailUsed = false;
+  private title;
+  private token;
+  private emailUsed = false;
 
   constructor(
-    private $http: ng.IHttpService,
+    private AuthService: IAuthService,
     private $state: ng.ui.IStateService,
-    private $httpParamSerializerJQLike: ng.IHttpParamSerializer,
     private $window: ng.IWindowService
   ) {
     'ngInject';
 
     this.token = {
-      token: this.$window.localStorage.getItem('token')
+      token: this.getToken()
     };
   }
 
@@ -30,21 +32,16 @@ class LogoutController implements ng.IComponentController {
   }
 
   logout() {
-    this.$http.post(
-      'http://localhost:8080/api/logout',
-      this.$httpParamSerializerJQLike(this.token),
-      {
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded'
-        }
-      }
-    ).then(response => {
-      if (response.data['status'] === 'fail') {
-        return;
-      }
+    this.AuthService.logout(this.token)
+      .then((response: IHttpLogoutResponse) => {
+        if (response.status === 'fail') { return };
 
-      this.$window.localStorage.clear();
-      this.$state.go('app.auth.login');
-    })
+        this.$window.localStorage.clear();
+        this.$state.go('app.auth.login');
+      });
+  }
+
+  getToken() {
+    return this.$window.localStorage.getItem('token');
   }
 }

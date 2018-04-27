@@ -32,10 +32,18 @@ export class AuthService {
   }
 
   login(user) {
-
     return this.$http.post(
       this.url + '/login',
       this.$httpParamSerializerJQLike(user),
+      this.config
+    )
+      .then(response => response.data);
+  }
+
+  logout(token) {
+    return this.$http.post(
+      this.url + '/logout',
+      this.$httpParamSerializerJQLike(token),
       this.config
     )
       .then(response => response.data);
