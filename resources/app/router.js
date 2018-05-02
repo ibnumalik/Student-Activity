@@ -9,25 +9,10 @@
         //$locationProvider.html5Mode(true);
         $urlRouterProvider.otherwise('/');
         $stateProvider
-          .state('home', {
-            url: '/',
-            templateUrl: 'pages/login.html',
-            controller: 'LoginCtrl', 
-          })
-          .state('register', {
-            url: '/register', 
-            templateUrl: 'pages/signup.html', 
-            controller: 'SignupCtrl' 
-          })
-          .state('dashboard', {
-            url: '/dashboard',
-            templateUrl: 'pages/dashboard.html',
-            controller: 'AppCtrl as app', 
-          })
           .state('parking', {
             url: '/parking',
             templateUrl: 'pages/parking.html',
-            controller: 'ParkingCtrl as park', 
+            controller: 'ParkingCtrl as park',
           })
           .state('seminar', {
             url: '/seminar',
@@ -36,7 +21,7 @@
           .state('transcript', {
             url: '/transcript',
             templateUrl: 'pages/transcript.html',
-            controller: 'TranscriptCtrl', 
+            controller: 'TranscriptCtrl',
           })
           .state('parking-payment', {
             url: '/payment/:number',
@@ -49,10 +34,10 @@
             controller: 'PaymentCtrl as pay'
           })
           .state('success', {
-            url: '/payment.success', 
+            url: '/payment.success',
             templateUrl: 'pages/payment.success.html',
             controller: 'PaymentCtrl as pay'
           });
       });
-  
+
 })();
