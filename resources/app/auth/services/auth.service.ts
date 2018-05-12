@@ -50,9 +50,10 @@ export class AuthService {
   }
 
   static factory() {
-    return (
-      $http, $window, $httpParamSerializerJQLike
-    ) => new AuthService($http, $window, $httpParamSerializerJQLike);
+    return ( $http, $window, $httpParamSerializerJQLike ) => {
+      'ngInject';
+      return new AuthService($http, $window, $httpParamSerializerJQLike);
+    }
   }
 
 }

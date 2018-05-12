@@ -24,5 +24,7 @@ angular.module('boot', [
  * Boot up the app when the document is loaded
  */
 angular.element(document).ready(() => {
-  angular.bootstrap(document, ['boot']);
+  angular.bootstrap(document, ['boot'], {
+    strictDi: true
+  });
 })

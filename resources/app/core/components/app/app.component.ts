@@ -16,7 +16,7 @@ export class App implements ng.IComponentOptions {
 export class AppController implements ng.IComponentController{
   public loggedIn: boolean;
 
-  constructor(private AuthService: IAuthService) {}
+  constructor(private AuthService: IAuthService) { 'ngInject'; }
 
   $doCheck() {
     this.loggedIn = this.AuthService.isLoggedIn();
