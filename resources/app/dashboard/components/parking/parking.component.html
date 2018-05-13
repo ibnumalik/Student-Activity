@@ -1,1 +1,18 @@
 <h1>Parking</h1>
+
+<ul class="flex list-type-none">
+    <li class="parking-block" ng-repeat="(name, parking) in $ctrl.groupedParkingSpaces">
+        <h3 class="parking-block__title">
+            {{ name }}
+        </h3>
+        <ul class="flex flex-center list-type-none" ng-select
+            ng-model="$ctrl.spaceSelected">
+            <li class="parking-spaces text-center"
+                ng-repeat="detail in parking"
+                ng-select-option="detail"
+                select-class="{'parking-spaces__selected': $optSelected}">
+                {{ detail.space_number }}
+            </li>
+        </ul>
+    </li>
+</ul>

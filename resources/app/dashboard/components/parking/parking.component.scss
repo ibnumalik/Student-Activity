@@ -1,0 +1,46 @@
+.list-type-none {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.parking-block {
+    border: 1px dashed black;
+    flex: 0 1 calc(50% - 3.125em);
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.parking-block__title {
+    text-align: center;
+}
+
+.parking-spaces {
+    background: #00bf9a;
+    border-radius: 0.125em;
+    cursor: pointer;
+    flex: 0 1 8%;
+    height: 3em;
+    margin: 0.5em;
+    padding: 1em;
+}
+
+.parking-spaces__selected {
+    background: #1159C3;
+}
+
+.parking-spaces__rented {
+    background: #F60022;
+}

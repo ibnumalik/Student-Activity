@@ -2,8 +2,8 @@ import './parking.component.scss'
 
 export class ParkingComponent implements ng.IComponentOptions {
   static NAME:string = 'parkingComponent';
-  template: string;
-  controller;
+  public template: string;
+  public controller;
 
   constructor() {
     this.template = require('./parking.component.html');
@@ -12,7 +12,27 @@ export class ParkingComponent implements ng.IComponentOptions {
 }
 
 export class ParkingComponentController implements ng.IComponentController {
+  public parkingSpaces: any[];
+  public groupedParkingSpaces: any[];
 
-  constructor() {}
+  constructor(private ParkingService) { 'ngInject' }
+
+  $onInit() {
+    this.ParkingService.get()
+      .then(response => {
+        this.parkingSpaces = response.data;
+
+        this.groupParkingBlock();
+      });
+  }
+
+  groupParkingBlock() {
+    this.groupedParkingSpaces = this.parkingSpaces.reduce((r, a) => {
+      r[a.block_name] = r[a.block_name] || [];
+      r[a.block_name].push(a);
+
+      return r;
+    }, Object.create(null));
+  }
 
 }

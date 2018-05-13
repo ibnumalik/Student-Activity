@@ -13,6 +13,7 @@ import { DashboardComponent } from './dashboard.component';
  */
 import { routing } from './dashboard.routes';
 import { StudentComponent } from "./components/student/student.component";
+import { ParkingService } from './components/parking/parking.service';
 
 export const dashboardModule =
   angular
@@ -31,4 +32,11 @@ export const dashboardModule =
      * Register Module Configuration
      */
     .config(routing)
+
+    /**
+     * Register Factory Service
+     */
+    .factory(ParkingService.NAME, ParkingService.factory())
+
+
     .name;
