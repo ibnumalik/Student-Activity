@@ -1,0 +1,9 @@
+version: '2'
+
+services:
+    web:
+      image: nginx:latest
+      ports:
+        - "8787:80"
+      volumes:
+        - .:/usr/share/nginx/html:ro
