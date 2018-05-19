@@ -9,6 +9,15 @@ class ParkingController
         return Response::json('success', $this->table()->get());
     }
 
+    public function rentSpace()
+    {
+        $id = input('id');
+
+        $this->table()->where('id', $id)->update(['rented' => true]);
+
+        return Response::json('success');
+    }
+
     private function table()
     {
         return \Builder::table('parking');

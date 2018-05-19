@@ -27,4 +27,4 @@ angular.element(document).ready(() => {
   angular.bootstrap(document, ['boot'], {
     strictDi: true
   });
-})
+});

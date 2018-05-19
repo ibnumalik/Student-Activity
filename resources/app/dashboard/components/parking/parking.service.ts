@@ -1,11 +1,20 @@
 export class ParkingService {
     static NAME = 'ParkingService';
     private url;
+    private config;
 
-    constructor(private $http: ng.IHttpService) {
+    constructor(
+        private $http: ng.IHttpService,
+        private $httpParamSerializerJQLike: ng.IHttpParamSerializer
+    ) {
         'ngInject'
 
-        this.url = 'http://localhost:8080/api'
+        this.url = 'http://localhost:8080/api';
+        this.config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        };
     }
 
     get() {
@@ -13,10 +22,18 @@ export class ParkingService {
             .then(response => response.data);
     }
 
+    rentSpace(data) {
+        return this.$http.post(
+            this.url+'/parking/status',
+            this.$httpParamSerializerJQLike(data),
+            this.config
+        ).then(response => response.data);
+    }
+
     static factory() {
-        return ($http) => {
+        return ($http, $httpParamSerializerJQLike) => {
             'ngInject';
-            return new ParkingService($http);
+            return new ParkingService($http, $httpParamSerializerJQLike);
         }
     }
 
