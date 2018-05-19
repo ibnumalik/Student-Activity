@@ -1,4 +1,6 @@
-<h1>Parking</h1>
+<div class="parking-info">
+    <h1>Parking</h1>
+</div>
 
 <ul class="flex list-type-none">
     <li class="parking-block" ng-repeat="(name, parking) in $ctrl.groupedParkingSpaces">
@@ -16,3 +18,19 @@
         </ul>
     </li>
 </ul>
+
+<div class="parking-info">
+    <h2 ng-show="!$ctrl.spaceSelected">Select your parking space.</h2>
+    <h2 ng-show="$ctrl.spaceSelected">
+        You select block {{ $ctrl.spaceSelected.block_name }} number {{ $ctrl.spaceSelected.space_number }}.
+    </h2>
+
+    <p ng-show="$ctrl.spaceSelected">The price will be RM 80.</p>
+</div>
+
+<md-button
+    ng-disabled="!$ctrl.spaceSelected"
+    class="md-raised md-accent"
+    ng-click="$ctrl.continue()">
+    Continue
+</md-button>
