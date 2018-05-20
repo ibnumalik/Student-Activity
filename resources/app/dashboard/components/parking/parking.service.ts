@@ -22,6 +22,11 @@ export class ParkingService {
             .then(response => response.data);
     }
 
+    get(id) {
+        return this.$http.get(this.url+'/parking/'+id)
+            .then(response => response.data);
+    }
+
     rentSpace(data) {
         return this.$http.post(
             this.url+'/parking/status',

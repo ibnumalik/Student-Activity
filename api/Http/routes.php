@@ -14,6 +14,7 @@ Route::group(['prefix' => '/api'], function() {
     Route::post('logout', 'AuthController@logout');
 
     Route::get('parking', 'ParkingController@getAll');
+    Route::get('parking/{id}', 'ParkingController@get');
     Route::post('parking/status', 'ParkingController@rentSpace');
 });
 
