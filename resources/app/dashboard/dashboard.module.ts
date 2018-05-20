@@ -15,6 +15,7 @@ import { ParkingPaymentComponent } from './components/parking/payment/payment.co
 import { routing } from './dashboard.routes';
 import { StudentComponent } from "./components/student/student.component";
 import { ParkingService } from './components/parking/parking.service';
+import { ParkingReceiptComponent } from "./components/parking/receipt/receipt.component";
 
 export const dashboardModule =
   angular
@@ -29,6 +30,7 @@ export const dashboardModule =
     .component(SeminarComponent.NAME, new SeminarComponent)
     .component(TranscriptComponent.NAME, new TranscriptComponent)
     .component(ParkingPaymentComponent.NAME, new ParkingPaymentComponent)
+    .component(ParkingReceiptComponent.NAME, new ParkingReceiptComponent)
 
     /**
      * Register Module Configuration

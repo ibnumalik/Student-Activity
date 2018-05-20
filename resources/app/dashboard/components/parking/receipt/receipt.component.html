@@ -1,0 +1,23 @@
+<div layout="column" layout-align="center center" class="parking-receipt">
+    <h1>Receipt</h1>
+    <md-card class="width-50 width-xs-100 text-center" class="card">
+        <md-card-content>
+            <h2 class="success">
+                Your payment has complete.
+            </h2>
+            <div class="success">
+                <span class="material-icons material-icons--large">check_circle</span>
+            </div>
+
+            <p>
+                Receipt ID: <code>{{ $ctrl.receiptId }}</code>
+            </p>
+        </md-card-content>
+
+        <md-divider></md-divider>
+
+        <md-card-actions>
+            <md-button ui-sref="app.dashboard.student">Return to Dashboard</md-button>
+        </md-card-actions>
+    </md-card>
+</div>

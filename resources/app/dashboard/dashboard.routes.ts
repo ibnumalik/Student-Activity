@@ -1,3 +1,4 @@
+import { ParkingReceiptComponent } from './components/parking/receipt/receipt.component';
 import { ParkingService } from './components/parking/parking.service';
 import { ParkingPaymentComponent } from './components/parking/payment/payment.component';
 import { SeminarComponent } from './components/seminar/seminar.component';
@@ -29,6 +30,11 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
       resolve: {
         parking: resolveParkingPayment
       }
+    })
+    .state('app.dashboard.parkingReceipt', {
+      // maybe we can add unique receipt id from API /:receiptId
+      url: '/parking/receipt',
+      component: ParkingReceiptComponent.NAME
     })
     .state('app.dashboard.seminar', {
       url: '/seminar',
