@@ -27,8 +27,7 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
       url: '/parking/payment/:parkingId',
       component: ParkingPaymentComponent.NAME,
       resolve: {
-        parking: resolveParkingPayment,
-        from: fromState
+        parking: resolveParkingPayment
       }
     })
     .state('app.dashboard.seminar', {
@@ -46,9 +45,4 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
 function resolveParkingPayment(ParkingService, $transition$) {
   'ngInject';
   return ParkingService.get($transition$.params().parkingId);
-}
-
-function fromState($transition$) {
-  'ngInject';
-  return $transition$.from();
 }

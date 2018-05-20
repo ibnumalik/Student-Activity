@@ -12,7 +12,7 @@ export class ParkingPaymentComponent implements ng.IComponentOptions {
         this.controller = ParkingPaymentController;
         this.bindings = {
             parking: '<',
-            from: '<'
+            $transition$: '<'
         };
     }
 }
@@ -21,13 +21,13 @@ export class ParkingPaymentController implements ng.IComponentController {
     private spaceSelected;
     private parking;
     private selectedParking;
-    private from;
     private backUrl;
+    private $transition$;
 
     constructor(private ParkingService) { 'ngInject' }
 
     $onInit() {
-        this.backUrl = this.from.name || 'app.dashboard.parking';
+        this.backUrl = this.$transition$.from().name || 'app.dashboard.parking';
         this.selectedParking = this.parking.data[0];
     }
 
