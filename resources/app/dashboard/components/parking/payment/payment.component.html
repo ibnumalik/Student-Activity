@@ -1,0 +1,32 @@
+<md-button class="flex payment__back-button" ui-sref="{{ $ctrl.backUrl }}">
+    <span class="material-icons">arrow_back</span>
+    Back
+</md-button>
+
+<div layout="column" layout-align="center center">
+    <h1>Payment</h1>
+    <md-card class="width-50 width-xs-100" class="card">
+        <md-card-content>
+            <p>
+                Please confirm your order before proceeding to payment stage. Any order that have been paid will not be refunded.
+            </p>
+            <p class="payment__price">
+                You have selected Block {{ $ctrl.selectedParking.block_name }} Number {{ $ctrl.selectedParking.space_number }}. <br>
+                The order total is <strong>RM80</strong>.
+            </p>
+        </md-card-content>
+
+        <md-divider></md-divider>
+        <md-card-actions layout="row" layout-align="start center">
+            <md-button ui-sref="">Pay with Online Banking</md-button>
+        </md-card-actions>
+        <md-divider></md-divider>
+        <md-card-actions layout="row" layout-align="start center">
+            <md-button ui-sref="">Pay with Card</md-button>
+        </md-card-actions>
+        <md-divider></md-divider>
+        <md-card-actions layout="row" layout-align="start center">
+            <md-button ui-sref="">Pay with Paypal</md-button>
+        </md-card-actions>
+    </md-card>
+</div>

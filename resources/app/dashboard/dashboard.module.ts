@@ -1,12 +1,13 @@
-import { TranscriptComponent } from './components/transcript/transcript.component';
-import { SeminarComponent } from './components/seminar/seminar.component';
-import { ParkingComponent } from './components/parking/parking.component';
 import * as angular from "angular";
 
 /**
  * Import Module Components
  */
 import { DashboardComponent } from './dashboard.component';
+import { TranscriptComponent } from './components/transcript/transcript.component';
+import { SeminarComponent } from './components/seminar/seminar.component';
+import { ParkingComponent } from './components/parking/parking.component';
+import { ParkingPaymentComponent } from './components/parking/payment/payment.component';
 
 /**
  * Import Module Configuration
@@ -27,6 +28,7 @@ export const dashboardModule =
     .component(ParkingComponent.NAME, new ParkingComponent)
     .component(SeminarComponent.NAME, new SeminarComponent)
     .component(TranscriptComponent.NAME, new TranscriptComponent)
+    .component(ParkingPaymentComponent.NAME, new ParkingPaymentComponent)
 
     /**
      * Register Module Configuration

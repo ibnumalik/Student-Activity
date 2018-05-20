@@ -1,0 +1,23 @@
+// @import '~material-icons/iconfont/material-icons.scss';
+
+.width-50 {
+    width: 50%;
+}
+
+.width-xs-100 {
+    @media only screen and (max-width: 599px) {
+      width: 100%;
+    }
+}
+
+.payment__price {
+    margin: 3rem 0 2rem !important;
+    line-height: 2;
+}
+
+.payment__back-button {
+    width: 10%;
+   .material-icons {
+       margin-right: 0.25em;
+   }
+}
