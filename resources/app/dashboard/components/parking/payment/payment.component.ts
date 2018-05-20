@@ -49,17 +49,32 @@ export class ParkingPaymentController implements ng.IComponentController {
             `
         });
 
-        this.$timeout(() => this.postPayment() , 1000);
-    }
-
-    postPayment() {
-        this.$mdDialog.hide();
-
         this.ParkingService.rentSpace({ id: this.selectedParking.id })
             .then(response => {
-                console.log(response);
-            });
+                this.$mdDialog.hide();
 
+                /**
+                 * Show error when parking space is taken
+                 */
+                if (response.status === 'fail') {
+                    return this.$mdDialog.show(
+                        this.$mdDialog.alert()
+                            .htmlContent(`
+                                <h2 class="flex vertical-center md-title md-title-error">
+                                    <span class="material-icons">error</span>
+                                    <span class="md-title-error-text">Error</span>
+                                </h2>
+                                <p>The parking space has been taken!</p>
+                            `)
+                            .ok('OK')
+                    );
+                }
+
+                this.redirectToReceipt();
+            });
+    }
+
+    redirectToReceipt() {
         this.$state.go('app.dashboard.parkingReceipt');
     }
 }

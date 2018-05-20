@@ -26,6 +26,22 @@
     padding: 5em 10em;
 }
 
+.dialog--error {
+    padding: 2em;
+}
+
+.md-title-error {
+    color: #F60022;
+}
+
+.md-title-error-text {
+    margin-left: 0.5em;
+}
+
+.vertical-center {
+    align-items: center;
+}
+
 .loader {
     animation: load3 1s infinite linear;
     background: #009688;
