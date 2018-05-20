@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 class ParkingController
 {
-    public function get()
+    public function getAll()
     {
         return Response::json('success', $this->table()->get());
     }

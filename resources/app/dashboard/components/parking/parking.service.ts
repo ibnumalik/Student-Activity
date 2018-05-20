@@ -17,7 +17,7 @@ export class ParkingService {
         };
     }
 
-    get() {
+    getAll() {
         return this.$http.get(this.url+'/parking')
             .then(response => response.data);
     }

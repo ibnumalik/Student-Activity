@@ -13,7 +13,7 @@ Route::group(['prefix' => '/api'], function() {
     Route::post('register', 'AuthController@register');
     Route::post('logout', 'AuthController@logout');
 
-    Route::get('parking', 'ParkingController@get');
+    Route::get('parking', 'ParkingController@getAll');
     Route::post('parking/status', 'ParkingController@rentSpace');
 });
 

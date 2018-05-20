@@ -18,7 +18,7 @@ export class ParkingComponentController implements ng.IComponentController {
   constructor(private ParkingService) { 'ngInject' }
 
   $onInit() {
-    this.ParkingService.get()
+    this.ParkingService.getAll()
       .then(response => {
         this.parkingSpaces = response.data;
 
