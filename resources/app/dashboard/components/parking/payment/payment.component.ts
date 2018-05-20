@@ -59,5 +59,7 @@ export class ParkingPaymentController implements ng.IComponentController {
             .then(response => {
                 console.log(response);
             });
+
+        this.$state.go('app.dashboard.parkingReceipt');
     }
 }
