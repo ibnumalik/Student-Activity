@@ -1,3 +1,4 @@
+import { IWindowService } from 'angular';
 import { ParkingService } from './../parking.service';
 import './payment.component.scss';
 
@@ -24,17 +25,39 @@ export class ParkingPaymentController implements ng.IComponentController {
     private backUrl;
     private $transition$;
 
-    constructor(private ParkingService) { 'ngInject' }
+    constructor(
+        private ParkingService,
+        private $mdDialog: ng.material.IDialogService,
+        private $timeout: ng.ITimeoutService,
+        private $state: ng.ui.IStateService
+    ) { 'ngInject' }
 
     $onInit() {
         this.backUrl = this.$transition$.from().name || 'app.dashboard.parking';
         this.selectedParking = this.parking.data[0];
     }
 
-    pay() {
-        this.ParkingService.rentSpace({ id: this.spaceSelected.id })
-        .then(response => {
-          console.log(response);
+    initiatePayment() {
+        this.$mdDialog.show({
+            template: `
+                <md-dialog>
+                    <md-dialog-content class="gateway">
+                        <p>Processing payment...</p>
+                        <div class="loader"></div>
+                    </md-dialog-content>
+                </md-dialog>
+            `
         });
+
+        this.$timeout(() => this.postPayment() , 1000);
+    }
+
+    postPayment() {
+        this.$mdDialog.hide();
+
+        this.ParkingService.rentSpace({ id: this.selectedParking.id })
+            .then(response => {
+                console.log(response);
+            });
     }
 }
