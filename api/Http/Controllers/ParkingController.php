@@ -13,7 +13,7 @@ class ParkingController
     {
         $id = input('id');
 
-        $this->table()->where('id', $id)->update(['rented' => true]);
+        $this->table()->where('id', $id)->update(['rented' => 'true']);
 
         return Response::json('success');
     }
