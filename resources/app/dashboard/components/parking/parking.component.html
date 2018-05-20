@@ -7,12 +7,17 @@
         <h3 class="parking-block__title">
             {{ name }}
         </h3>
-        <ul class="flex flex-center list-type-none" ng-select
+        <ul class="flex flex-center list-type-none"
+            ng-select
             ng-model="$ctrl.spaceSelected">
             <li class="parking-spaces text-center"
                 ng-repeat="detail in parking"
                 ng-select-option="detail"
-                select-class="{'parking-spaces__selected': $optSelected}">
+                select-disabled="detail.rented === 'true'"
+                select-class="{
+                    'parking-spaces__selected': $optSelected,
+                    'parking-spaces__rented': detail.rented === 'true'
+                }">
                 {{ detail.space_number }}
             </li>
         </ul>
