@@ -1,8 +1,9 @@
 import * as angular from "angular";
 import '@uirouter/angularjs';
 import 'angular-material';
-import 'ngSelect';
 import 'angular-messages';
+import 'angular-sanitize';
+import 'ngSelect';
 
 /**
  * Import Module for app
@@ -17,6 +18,7 @@ export const appModule =
     'ngMaterial',
     'ngMessages',
     'ngSelect',
+    'ngSanitize',
     coreModule,
     authModule,
     dashboardModule
