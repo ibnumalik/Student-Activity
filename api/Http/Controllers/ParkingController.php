@@ -21,7 +21,15 @@ class ParkingController
         // Add server side validation check if space is rented
         $id = input('id');
 
-        $this->table()->where('id', $id)->update(['rented' => 'true']);
+        $parking = $this->getParking($id)->first();
+
+        if ($parking->rented === 'true') {
+            return Response::json('fail', [
+                'message' => 'The parking space has been rented'
+            ]);
+        }
+
+        $this->getParking($id)->update(['rented' => 'true']);
 
         return Response::json('success');
     }
@@ -29,5 +37,10 @@ class ParkingController
     private function table()
     {
         return \Builder::table('parking');
+    }
+
+    private function getParking($id)
+    {
+        return $this->table()->where('id', $id);
     }
 }
