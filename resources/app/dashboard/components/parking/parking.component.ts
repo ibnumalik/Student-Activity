@@ -14,8 +14,9 @@ export class ParkingComponent implements ng.IComponentOptions {
 export class ParkingComponentController implements ng.IComponentController {
   public parkingSpaces: any[];
   public groupedParkingSpaces: any[];
+  private spaceSelected;
 
-  constructor(private ParkingService) { 'ngInject' }
+  constructor(private ParkingService, private $state) { 'ngInject' }
 
   $onInit() {
     this.ParkingService.getAll()
@@ -24,6 +25,10 @@ export class ParkingComponentController implements ng.IComponentController {
 
         this.groupParkingBlock();
       });
+  }
+
+  continue() {
+    this.$state.go('app.dashboard.parkingPayment', { parkingId: this.spaceSelected.id });
   }
 
   groupParkingBlock() {

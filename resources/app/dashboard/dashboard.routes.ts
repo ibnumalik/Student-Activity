@@ -1,3 +1,5 @@
+import { ParkingService } from './components/parking/parking.service';
+import { ParkingPaymentComponent } from './components/parking/payment/payment.component';
 import { SeminarComponent } from './components/seminar/seminar.component';
 import { ParkingComponent } from './components/parking/parking.component';
 import { StudentComponent } from './components/student/student.component';
@@ -21,6 +23,14 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
       url: '/parking',
       component: ParkingComponent.NAME
     })
+    .state('app.dashboard.parkingPayment', {
+      url: '/parking/payment/:parkingId',
+      component: ParkingPaymentComponent.NAME,
+      resolve: {
+        parking: resolveParkingPayment,
+        from: fromState
+      }
+    })
     .state('app.dashboard.seminar', {
       url: '/seminar',
       component: SeminarComponent.NAME
@@ -31,4 +41,14 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
     });
 
   $urlRouterProvider.otherwise('/app');
+}
+
+function resolveParkingPayment(ParkingService, $transition$) {
+  'ngInject';
+  return ParkingService.get($transition$.params().parkingId);
+}
+
+function fromState($transition$) {
+  'ngInject';
+  return $transition$.from();
 }
