@@ -13,6 +13,12 @@ class ParkingController
     {
         $parking = $this->table()->where('id', $id)->get();
 
+        if (empty($parking)) {
+            return Response::json('fail', [
+                'message' => 'The parking space does not exist'
+            ]);
+        }
+
         return Response::json('success', $parking);
     }
 
