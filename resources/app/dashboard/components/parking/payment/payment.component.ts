@@ -1,4 +1,6 @@
 import { IWindowService } from 'angular';
+import { StateService } from "@uirouter/angularjs";
+
 import { ParkingService } from './../parking.service';
 import './payment.component.scss';
 
@@ -31,7 +33,7 @@ export class ParkingPaymentController implements ng.IComponentController {
         private ParkingService,
         private $mdDialog: ng.material.IDialogService,
         private $timeout: ng.ITimeoutService,
-        private $state,
+        private $state: StateService,
         private $window: ng.IWindowService
     ) {
         'ngInject'

@@ -39,7 +39,6 @@
     "@types/angular": "^1.6.45",
     "@types/angular-animate": "^1.5.9",
     "@types/angular-material": "^1.1.59",
-    "@types/angular-ui-router": "^1.1.40",
     "@types/node": "^10.1.2",
     "css-loader": "^0.28.11",
     "extract-loader": "^2.0.1",

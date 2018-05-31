@@ -1,6 +1,8 @@
 import { App } from "./components/app/app.component";
+import { StateProvider, UrlRouterProvider } from "@uirouter/angularjs";
 
-export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+export const routing =
+($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) => {
   'ngInject';
 
   $stateProvider

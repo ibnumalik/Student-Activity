@@ -1,9 +1,10 @@
+import { StateProvider, UrlRouterProvider } from "@uirouter/angularjs";
 import { AuthComponent } from "./auth.component";
 import { LoginComponent } from "./components/login/login.component";
 import { RegisterComponent } from "./components/register/register.component";
 import { LogoutComponent } from "./components/logout/logout.component";
 
-export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+export const routing = ($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) => {
   'ngInject';
 
   $stateProvider
@@ -24,5 +25,4 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
       url: '/logout',
       component: LogoutComponent.NAME
     });
-
 }

@@ -1,5 +1,5 @@
+import { UrlRouterProvider, StateProvider } from '@uirouter/angularjs';
 import { ParkingReceiptComponent } from './components/parking/receipt/receipt.component';
-import { ParkingService } from './components/parking/parking.service';
 import { ParkingPaymentComponent } from './components/parking/payment/payment.component';
 import { SeminarComponent } from './components/seminar/seminar.component';
 import { ParkingComponent } from './components/parking/parking.component';
@@ -7,7 +7,8 @@ import { StudentComponent } from './components/student/student.component';
 import { DashboardComponent } from "./dashboard.component";
 import { TranscriptComponent } from './components/transcript/transcript.component';
 
-export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider: ng.ui.IUrlRouterProvider) => {
+export const routing =
+($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) => {
   'ngInject';
 
   $stateProvider

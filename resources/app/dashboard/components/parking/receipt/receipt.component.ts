@@ -1,3 +1,4 @@
+import { Transition, StateService } from "@uirouter/angularjs";
 import { ParkingService } from './../parking.service';
 import './receipt.component.scss';
 
@@ -21,8 +22,8 @@ export class ParkingReceiptController implements ng.IComponentController {
 
     constructor(
         private ParkingService,
-        private $state,
-        private $transition$,
+        private $state: StateService,
+        private $transition$: Transition,
         private $window: ng.IWindowService
     ) { 'ngInject' }
 
