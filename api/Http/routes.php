@@ -16,6 +16,8 @@ Route::group(['prefix' => '/api'], function() {
     Route::get('parking', 'ParkingController@getAll');
     Route::get('parking/{id}', 'ParkingController@get')
         ->setMatch('/\/parking\/([0-9]+)/');
+
+    Route::post('parking/rent', 'ParkingController@rentParking');
 });
 
 Route::error(function(Request $request, \Exception $exception) {

@@ -34,7 +34,8 @@ export const routing = ($stateProvider: ng.ui.IStateProvider, $urlRouterProvider
     .state('app.dashboard.parkingReceipt', {
       // maybe we can add unique receipt id from API /:receiptId
       url: '/parking/receipt',
-      component: ParkingReceiptComponent.NAME
+      component: ParkingReceiptComponent.NAME,
+      params: { receipt: null }
     })
     .state('app.dashboard.seminar', {
       url: '/seminar',

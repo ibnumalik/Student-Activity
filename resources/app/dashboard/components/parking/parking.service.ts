@@ -29,7 +29,7 @@ export class ParkingService {
 
     rentSpace(data) {
         return this.$http.post(
-            this.url+'/parking/status',
+            this.url+'/parking/rent',
             this.$httpParamSerializerJQLike(data),
             this.config
         ).then(response => response.data);
@@ -41,5 +41,4 @@ export class ParkingService {
             return new ParkingService($http, $httpParamSerializerJQLike);
         }
     }
-
 }

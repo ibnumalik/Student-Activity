@@ -4,6 +4,13 @@ namespace App\Http\Controllers;
 
 class ParkingController
 {
+    /**
+     * User token
+     *
+     * @var [string]
+     */
+    private $token;
+
     public function getAll()
     {
         return Response::json('success', $this->table()->get());
@@ -22,12 +29,13 @@ class ParkingController
         return Response::json('success', $parking);
     }
 
-    public function rentSpace()
+    public function rentParking()
     {
-        // Add server side validation check if space is rented
-        $id = input('id');
+        $this->token = input('token');
+        $parkingId = input('id');
 
-        $parking = $this->getParking($id)->first();
+        $parking = $this->getParking($parkingId)->first();
+        $receipt = $this->generateReceipt();
 
         if ($parking->rented === 'true') {
             return Response::json('fail', [
@@ -35,9 +43,12 @@ class ParkingController
             ]);
         }
 
-        $this->getParking($id)->update(['rented' => 'true']);
+        $this->getParking($parkingId)->update(['rented' => 'true']);
+        $this->attachParkingToUser($parkingId, $receipt);
 
-        return Response::json('success');
+        return Response::json('success', [
+            'receipt' => $receipt
+        ]);
     }
 
     private function table()
@@ -45,8 +56,33 @@ class ParkingController
         return \Builder::table('parking');
     }
 
+    private function pivotTable()
+    {
+        return \Builder::table('user_parking');
+    }
+
     private function getParking($id)
     {
         return $this->table()->where('id', $id);
+    }
+
+    private function getUser()
+    {
+        $user = new UserController;
+        return $user->getUser($this->token);
+    }
+
+    private function attachParkingToUser($parkingId, $receipt)
+    {
+        return $this->pivotTable()->insert([
+            'parking_id' => $parkingId,
+            'user_id' => $this->getUser()->id,
+            'receipt' => $receipt
+        ]);
+    }
+
+    private function generateReceipt()
+    {
+        return $this->getUser()->email.'-'.uniqid().uniqid();
     }
 }

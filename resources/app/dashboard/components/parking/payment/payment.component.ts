@@ -24,13 +24,20 @@ export class ParkingPaymentController implements ng.IComponentController {
     private selectedParking;
     private backUrl;
     private $transition$;
+    private token;
+    private receipt;
 
     constructor(
         private ParkingService,
         private $mdDialog: ng.material.IDialogService,
         private $timeout: ng.ITimeoutService,
-        private $state: ng.ui.IStateService
-    ) { 'ngInject' }
+        private $state,
+        private $window: ng.IWindowService
+    ) {
+        'ngInject'
+
+        this.token = $window.localStorage.getItem('token');
+    }
 
     $onInit() {
         this.backUrl = this.$transition$.from().name || 'app.dashboard.parking';
@@ -49,7 +56,12 @@ export class ParkingPaymentController implements ng.IComponentController {
             `
         });
 
-        this.ParkingService.rentSpace({ id: this.selectedParking.id })
+        this.ParkingService.rentSpace(
+            {
+                id: this.selectedParking.id,
+                token: this.token
+            }
+        )
             .then(response => {
                 this.$mdDialog.hide();
 
@@ -70,11 +82,15 @@ export class ParkingPaymentController implements ng.IComponentController {
                     );
                 }
 
+                this.receipt = response.data.receipt;
+
                 this.redirectToReceipt();
             });
     }
 
     redirectToReceipt() {
-        this.$state.go('app.dashboard.parkingReceipt');
+        this.$state.go('app.dashboard.parkingReceipt', {
+            receipt: this.receipt
+        });
     }
 }
