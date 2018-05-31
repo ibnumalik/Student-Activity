@@ -19,11 +19,11 @@ export class ParkingReceiptComponent implements ng.IComponentOptions {
 
 export class ParkingReceiptController implements ng.IComponentController {
     private receipt;
+    private $transition$: Transition;
 
     constructor(
         private ParkingService,
         private $state: StateService,
-        private $transition$: Transition,
         private $window: ng.IWindowService
     ) { 'ngInject' }
 
