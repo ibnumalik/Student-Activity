@@ -1,6 +1,5 @@
 import { IAuthService, IHttpRegisterResponse } from './../../auth';
-import { AuthService } from './../../services/auth.service';
-import { IHttpResponse } from "angular";
+import { StateService } from "@uirouter/angularjs";
 
 export class RegisterComponent implements ng.IComponentOptions {
   static NAME = 'appRegister';
@@ -22,7 +21,7 @@ class RegisterController implements ng.IComponentController {
 
   constructor(
     private AuthService: IAuthService,
-    private $state: ng.ui.IStateService,
+    private $state: StateService,
     private $timeout: ng.ITimeoutService
   ) {
     'ngInject';

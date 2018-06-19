@@ -1,6 +1,6 @@
 import { IWindowService, ITimeoutService } from "angular";
-import { AuthService } from './../../services/auth.service';
 import { IAuthService, IHttpLoginResponse } from './../../auth';
+import { StateService } from "@uirouter/angularjs";
 
 export class LoginComponent implements ng.IComponentOptions {
   static NAME = 'appLogin';
@@ -22,7 +22,7 @@ class LoginController implements ng.IComponentController {
 
   constructor(
     private AuthService: IAuthService,
-    private $state: ng.ui.IStateService,
+    private $state: StateService,
     private $timeout: ITimeoutService,
     private $window: IWindowService
   ) {

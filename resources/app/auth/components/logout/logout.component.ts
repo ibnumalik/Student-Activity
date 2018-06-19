@@ -1,5 +1,5 @@
 import { IAuthService, IHttpLogoutResponse } from './../../auth';
-import { AuthService } from './../../services/auth.service';
+import { StateService } from "@uirouter/angularjs";
 
 export class LogoutComponent implements ng.IComponentOptions {
   static NAME = 'appLogout';
@@ -17,7 +17,7 @@ class LogoutController implements ng.IComponentController {
 
   constructor(
     private AuthService: IAuthService,
-    private $state: ng.ui.IStateService,
+    private $state: StateService,
     private $window: ng.IWindowService
   ) {
     'ngInject';
