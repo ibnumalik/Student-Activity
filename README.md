@@ -1,26 +1,101 @@
-# 1. Introduction
-This is simple system for student with three different purposes.
-1. Students can purchase monthly parking online.
-2. They can obtain their current seminar.
-3. They can order official transcript.
+# Student Activity App
 
-# 2. Usage
-To use this system, students have to register, and then they will redirected to login pages.
-After registration they can login and authenticated by the system, which will store token in localStorage.
-After logging in they will redirected to the dashboard and there will be three options to choose which is:
-1. Go to purchase parking spaces for one month.
-2. Obtain the current seminar schedule,
-3. Order official transcript.
+In this simple app, students can rent a parking space, view their seminar schedule and order result transcript from their institution.
 
-# 3. How it works.
-1. Using the magics of AngularJS, a simple system can be created quickly. AngularJS was used as front end of this system to handle routing and user data input.
-2. For backend, this system utilize PHP to handle the data received and store it into database. The data was received when AngularJS contact the PHP using $http services.
-3. This system also use Material Design Lite for styling.
+<sub>This app was built to practice my Angular.js knowledge.</sub>
 
-# 4. Conclusion
-Building this system is fairly easy because there is not much going on behind the scene. But it can be improved by adding security layer in authentication such as using JWT. This system also can be improved by building a student profile which has several database table and make a relational between them. For example, by creating a table student, parking, seminar schedule and transcript, we can link them together by creating relationship. This can create a more dynamic system.
+## Getting Started
 
-# Todo
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-- [ ] Separate HTTP call in component to service
+### Prerequisites
+
+Before you can run this app, you need several things installed.
+
+1. Node.js with npm.
+
+    1.1. Go through the [official website](https://nodejs.org/en/) to install Node.js.
+
+    1.2. If you have installed it then check whether it is properly installed using this command.
+
+    ```shell
+    $ node -v
+    $ npm -v
+    ```
+2. Docker
+
+    2.1. Download Docker [here](https://www.docker.com/community-edition) and make sure to follow the guide, as it will install `docker-compose` too.
+
+    2.2. If you go through the official guide of installation, then you probably have run the `hello-world` example. But, if still in doubt whether Docker properly installed or not just run this command to check.
+
+    ```
+    $ docker --version
+    $ docker-compose --version
+    ```
+
+### Installing
+
+Alright, here we go. Let's install our app and get started!
+
+1. First step is to clone this project.
+
+```
+git clone https://github.com/ibnumalik/Student-Activity.git my-project
+```
+
+2. Change directory to the cloned project.
+
+    ```
+    cd /path/to/my-project
+    ```
+
+    2.1. Install npm dependencies
+    ```
+    npm install
+    ```
+
+    2.2. Download and start Docker in background.
+    ```
+    docker-compose up -d
+    ```
+
+### Starting development
+
+To start development server and see how it run
+
+```
+npm run dev
+```
+
+The server will run on port `8008`. Open `http://localhost:8008` on your browser.
+
+## Built With
+
+**Front End**
+- Angular.js
+- Angular Material
+- TypeScript
+- Webpack
+
+**Back End**
+- Docker
+- Nginx
+- PHP
+- SQLite
+
+## Issues
+
+- Sometimes there is problem saving data to SQLite due to permission issues. For the time being the workaround is to change the permission to 777.
+
+```
+chmod 777 database/portal.db
+```
+
+## Todo
+
+- [x] Separate HTTP call in component to service
 - [ ] Upgrade ng-annotate-loader to babel-plugin-angularjs-annotate
+
+## License
+
+This project is licensed under the MIT License.
