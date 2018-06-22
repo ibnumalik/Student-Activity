@@ -1,0 +1,36 @@
+.table {
+    background: #ffffff;
+    border-collapse: collapse;
+    border-radius: 2px;
+    white-space: nowrap;
+    width: 100%;
+
+    .column {
+        padding-left: 24px;
+    }
+
+    .header {
+        th {
+            box-sizing: border-box;
+            border-bottom: solid 1px #dddddd;
+            color: #757575;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 0;
+            line-height: 24px;
+            padding: 16px 0 16px 24px;
+            text-align: left;
+            text-overflow: ellipsis;
+            vertical-align: bottom;
+        }
+    }
+
+    tr {
+        td {
+            border-bottom: 1px solid #dddddd;
+            color: #212121;
+            font-size: 13px;
+            height: 48px;
+        }
+    }
+}
