@@ -1,3 +1,4 @@
+import { commonModule } from './common/common.module';
 import * as angular from "angular";
 import '@uirouter/angularjs';
 import 'angular-material';
@@ -20,6 +21,7 @@ export const appModule =
     'ngSelect',
     'ngSanitize',
     coreModule,
+    commonModule,
     authModule,
     dashboardModule
   ]).name;
