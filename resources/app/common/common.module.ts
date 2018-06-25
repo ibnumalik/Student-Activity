@@ -11,6 +11,7 @@ import * as angular from "angular";
  */
 
  import { StorageService } from "./storage.service";
+import { FormOnChange } from "./form-on-change.directive";
 
 /**
  * Import Module Configuration
@@ -25,4 +26,9 @@ export const commonModule =
      * Register Module Service
      */
     .factory(StorageService.NAME, StorageService.factory())
+
+     /**
+     * Register Module Directive
+     */
+    .directive(FormOnChange.NAME, FormOnChange.factory())
     .name;
