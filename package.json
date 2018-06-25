@@ -33,7 +33,8 @@
     "angular-material": "^1.1.9",
     "angular-messages": "^1.7.0",
     "angular-sanitize": "^1.7.0",
-    "ngSelect": "github:ibnumalik/ngSelect"
+    "ngSelect": "github:ibnumalik/ngSelect",
+    "sass-mq": "^5.0.0"
   },
   "devDependencies": {
     "@types/angular": "^1.6.45",

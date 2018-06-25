@@ -1,0 +1,12 @@
+@import "~sass-mq/mq";
+
+// https://material.angularjs.org/latest/layout/introduction
+@include mq-add-breakpoint(xs, 599px);
+@include mq-add-breakpoint(gt-xs, 600px);
+@include mq-add-breakpoint(sm, 959px);
+@include mq-add-breakpoint(gt-sm, 960px);
+@include mq-add-breakpoint(md, 1279px);
+@include mq-add-breakpoint(gt-md, 1280px);
+@include mq-add-breakpoint(lg, 1919px);
+@include mq-add-breakpoint(gt-lg, 1920px);
+@include mq-add-breakpoint(xl, 1921px);

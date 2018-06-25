@@ -59,7 +59,12 @@ module.exports = (env, argv) => {
                             }
                         },
                         {
-                            loader: 'sass-loader'
+                            loader: 'sass-loader',
+                            options: {
+                                //https://github.com/zeit/next.js/issues/1325
+                                includePaths: ['resources/sass']
+                                    .map(d => path.join(__dirname, d))
+                            }
                         }
                     ]
                 },
