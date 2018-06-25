@@ -1,1 +1,61 @@
-<h1>Transcript</h1>
+<h1 class="page-title">Transcript Application Form</h1>
+
+<!-- Order form -->
+
+<md-card>
+    <md-card-content>
+        <form name="$ctrl.transcriptForm"
+            class="transcriptForm"
+            ng-submit="$ctrl.submit()"
+            form-on-change="$ctrl.updateSavedForm()"
+            novalidate>
+            <div layout-gt-xs="row">
+                <md-input-container flex-gt-xs>
+                    <label>First Name</label>
+                    <input ng-model="$ctrl.student.firstName" required>
+                </md-input-container>
+                <md-input-container flex-gt-xs>
+                    <label>Last Name</label>
+                    <input ng-model="$ctrl.student.lastName" required>
+                </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <md-input-container flex-gt-xs>
+                    <label>IC Number</label>
+                    <input ng-model="$ctrl.student.icNumber" required>
+                </md-input-container>
+            </div>
+            <div layout-gt-xs="row">
+                <md-input-container flex-gt-xs>
+                    <label>Student ID</label>
+                    <input ng-model="$ctrl.student.studentId" required>
+                </md-input-container>
+                <md-input-container flex-gt-xs>
+                    <label>Phone Number</label>
+                    <input ng-model="$ctrl.student.phone" required>
+                </md-input-container>
+            </div>
+
+            <ol>
+                <li>
+                    Each transcript request will be charged RM10.
+                </li>
+                <li>
+                    Please make payment at the next pages
+                </li>
+                <li>
+                    You may collect your transcript at our offices in working hours.
+                </li>
+            </ol>
+
+            <md-button
+                class="md-raised md-accent"
+                type="submit"
+                ng-disabled="$ctrl.transcriptForm.$invalid">
+                Make payment
+            </md-button>
+
+        </form>
+
+    </md-card-content>
+</md-card>

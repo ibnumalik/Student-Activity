@@ -1,0 +1,24 @@
+@import "screen";
+
+.page-title {
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    @include mq($from: gt-sm) {
+        font-size: 2rem;
+    }
+}
+
+.transcriptForm {
+    width: 320px;
+    margin: 2rem auto;
+
+    @include mq($from: gt-xs) {
+        width: 400px;
+    }
+
+    @include mq($from: gt-sm) {
+        width: 600px;
+    }
+}
