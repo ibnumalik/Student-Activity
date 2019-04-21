@@ -39,9 +39,9 @@ Alright, here we go. Let's install our app and get started!
 
 1. First step is to clone this project.
 
-```
-git clone https://github.com/ibnumalik/Student-Activity.git my-project
-```
+    ```
+    git clone https://github.com/ibnumalik/Student-Activity.git my-project
+    ```
 
 2. Change directory to the cloned project.
 
