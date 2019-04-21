@@ -6,6 +6,7 @@ import { ParkingComponent } from './components/parking/parking.component';
 import { StudentComponent } from './components/student/student.component';
 import { DashboardComponent } from "./dashboard.component";
 import { TranscriptComponent } from './components/transcript/transcript.component';
+import { TranscriptPaymentComponent } from './components/transcript/payment/payment.component';
 
 export const routing =
 ($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) => {
@@ -33,7 +34,6 @@ export const routing =
       }
     })
     .state('app.dashboard.parkingReceipt', {
-      // maybe we can add unique receipt id from API /:receiptId
       url: '/parking/receipt',
       component: ParkingReceiptComponent.NAME,
       params: { receipt: null }
@@ -45,6 +45,10 @@ export const routing =
     .state('app.dashboard.transcript', {
       url: '/transcript',
       component: TranscriptComponent.NAME
+    })
+    .state('app.dashboard.transcriptPayment', {
+      url: '/transcript/payment',
+      component: TranscriptPaymentComponent.NAME
     });
 
   $urlRouterProvider.otherwise('/app');

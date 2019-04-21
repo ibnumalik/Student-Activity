@@ -16,6 +16,7 @@ import { routing } from './dashboard.routes';
 import { StudentComponent } from "./components/student/student.component";
 import { ParkingService } from './components/parking/parking.service';
 import { ParkingReceiptComponent } from "./components/parking/receipt/receipt.component";
+import { TranscriptPaymentComponent } from "./components/transcript/payment/payment.component";
 
 export const dashboardModule =
   angular
@@ -27,10 +28,11 @@ export const dashboardModule =
     .component(DashboardComponent.NAME, new DashboardComponent)
     .component(StudentComponent.NAME, new StudentComponent)
     .component(ParkingComponent.NAME, new ParkingComponent)
-    .component(SeminarComponent.NAME, new SeminarComponent)
-    .component(TranscriptComponent.NAME, new TranscriptComponent)
     .component(ParkingPaymentComponent.NAME, new ParkingPaymentComponent)
     .component(ParkingReceiptComponent.NAME, new ParkingReceiptComponent)
+    .component(SeminarComponent.NAME, new SeminarComponent)
+    .component(TranscriptComponent.NAME, new TranscriptComponent)
+    .component(TranscriptPaymentComponent.NAME, new TranscriptPaymentComponent)
 
     /**
      * Register Module Configuration

@@ -1,3 +1,4 @@
+import { StateService } from '@uirouter/angularjs';
 import { IStorageService } from './../../../common/storage.service';
 import './transcript.component.scss'
 
@@ -16,9 +17,10 @@ export class TranscriptComponentController implements ng.IComponentController {
   public transcriptForm;
   public student;
 
-  constructor(private storageService: IStorageService) {
-    'ngInject';
-  }
+  constructor(
+    private storageService: IStorageService,
+    private $state: StateService
+  ) { 'ngInject' }
 
   $onInit() {
     this.student = this.storageService.getItem('transcriptForm') || {};
@@ -30,7 +32,7 @@ export class TranscriptComponentController implements ng.IComponentController {
 
   submit() {
     if (this.transcriptForm.$valid) {
-      return;
+      this.$state.go('app.dashboard.transcriptPayment');
     }
   }
 

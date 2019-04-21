@@ -1,7 +1,6 @@
-import { IWindowService } from 'angular';
+import { IStorageService } from './../../../../common/storage.service';
 import { StateService } from "@uirouter/angularjs";
 
-import { ParkingService } from './../parking.service';
 import './payment.component.scss';
 
 export class ParkingPaymentComponent implements ng.IComponentOptions {
@@ -21,7 +20,6 @@ export class ParkingPaymentComponent implements ng.IComponentOptions {
 }
 
 export class ParkingPaymentController implements ng.IComponentController {
-    private spaceSelected;
     private parking;
     private selectedParking;
     private backUrl;
@@ -32,16 +30,12 @@ export class ParkingPaymentController implements ng.IComponentController {
     constructor(
         private ParkingService,
         private $mdDialog: ng.material.IDialogService,
-        private $timeout: ng.ITimeoutService,
         private $state: StateService,
-        private $window: ng.IWindowService
-    ) {
-        'ngInject'
-
-        this.token = $window.localStorage.getItem('token');
-    }
+        private storageService: IStorageService
+    ) { 'ngInject' }
 
     $onInit() {
+        this.token = this.storageService.getItem('token');
         this.backUrl = this.$transition$.from().name || 'app.dashboard.parking';
         this.selectedParking = this.parking.data[0];
     }
