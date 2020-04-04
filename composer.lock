@@ -1,13 +1,13 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
     "content-hash": "12db265e0b109eed4be14ee5536b4ff0",
     "packages": [
         {
-            "name": "jeremeamia/SuperClosure",
+            "name": "jeremeamia/superclosure",
             "version": "2.4.0",
             "source": {
                 "type": "git",
@@ -62,6 +62,7 @@
                 "serialize",
                 "tokenizer"
             ],
+            "abandoned": "opis/closure",
             "time": "2018-03-21T22:21:57+00:00"
         },
         {
@@ -471,16 +472,16 @@
         },
         {
             "name": "usmanhalalit/pixie",
-            "version": "2.0.0",
+            "version": "2.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/usmanhalalit/pixie.git",
-                "reference": "5820ef4f62c7be697767fd84830b7ad6fc057375"
+                "reference": "873e70e63b6802634050d9fb3d38a9bc0c5d23fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/usmanhalalit/pixie/zipball/5820ef4f62c7be697767fd84830b7ad6fc057375",
-                "reference": "5820ef4f62c7be697767fd84830b7ad6fc057375",
+                "url": "https://api.github.com/repos/usmanhalalit/pixie/zipball/873e70e63b6802634050d9fb3d38a9bc0c5d23fc",
+                "reference": "873e70e63b6802634050d9fb3d38a9bc0c5d23fc",
                 "shasum": ""
             },
             "require": {
@@ -523,7 +524,7 @@
                 "sql",
                 "sqlite"
             ],
-            "time": "2016-04-08T10:58:01+00:00"
+            "time": "2019-11-16T12:29:06+00:00"
         },
         {
             "name": "usmanhalalit/viocon",
