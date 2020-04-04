@@ -39,23 +39,21 @@ class AuthController
     {
         $inputs = input()->all(['email', 'password']);
 
-        if (!$this->isValid($inputs))
-        {
+        if (!$this->isValid($inputs)) {
             return Response::json('fail', ['message' => 'form is not valid']);
         }
 
-        if ($this->isEmailExist($inputs['email']))
-        {
+        if ($this->isEmailExist($inputs['email'])) {
             return Response::json('fail', ['message' => 'email already used']);
         }
 
-        $this->table()->insert([
+        $insert = $this->table()->insert([
             'email' => $inputs['email'],
             'password' => password_hash($inputs['password'], PASSWORD_DEFAULT),
             'role' => 'student'
         ]);
 
-        return Response::json('success');
+        return Response::json('success', ['data' => $insert]);
     }
 
     public function logout()
@@ -63,8 +61,7 @@ class AuthController
         $token = input('token');
         $users = $this->table()->where('token', $token)->get();
 
-        if (empty($token) || empty($users))
-        {
+        if (empty($token) || empty($users)) {
             return Response::json('fail', [
                 'message' => 'already logged out'
             ]);
@@ -82,7 +79,7 @@ class AuthController
 
     private function generateToken($email)
     {
-        return $email.'|'.uniqid().uniqid().uniqid();
+        return $email . '|' . uniqid() . uniqid() . uniqid();
     }
 
     private function isEmailExist($email)
@@ -112,8 +109,7 @@ class AuthController
     private function isEmpty($arrays)
     {
         return array_map(
-            function ($value)
-            {
+            function ($value) {
                 return !empty($value);
             },
             $arrays
