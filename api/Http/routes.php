@@ -4,9 +4,9 @@ use Pecee\SimpleRouter\SimpleRouter as Route;
 use Pecee\Http\Request;
 use Pecee\SimpleRouter\Exceptions\NotFoundHttpException;
 
-Route::group(['prefix' => '/api'], function() {
-    Route::get('/secret', function() {
-        return 'API Secret';
+Route::group(['prefix' => '/api'], function () {
+    Route::get('/secret', function () {
+        return sha1(rand());
     });
 
     Route::post('login', 'AuthController@login');
@@ -20,8 +20,8 @@ Route::group(['prefix' => '/api'], function() {
     Route::post('parking/rent', 'ParkingController@rentParking');
 });
 
-Route::error(function(Request $request, \Exception $exception) {
-    if($exception instanceof NotFoundHttpException && $exception->getCode() === 404) {
+Route::error(function (Request $request, \Exception $exception) {
+    if ($exception instanceof NotFoundHttpException && $exception->getCode() === 404) {
         response()->redirect('/api/secret');
     }
 });
