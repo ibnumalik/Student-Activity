@@ -54,7 +54,9 @@ Alright, here we go. Let's install our app and get started!
     npm install
     ```
 
-    2.2. Download and start Docker in background.
+    2.2. Duplicate `.env.example` file to `.env` file.
+
+    2.3. Start docker in background.
     ```
     docker-compose up -d
     ```
@@ -86,7 +88,7 @@ The server will run on port `8008`. Open `http://localhost:8008` on your browser
 ## Issues
 
 - Sometimes there is problem saving data to SQLite due to permission issues. For the time being the workaround is to change the permission to 777.
-
+- It may have to do with the owner of the files.
 ```
 chmod 777 database/portal.db
 ```
@@ -95,6 +97,7 @@ chmod 777 database/portal.db
 
 - [x] Separate HTTP call in component to service
 - [ ] Upgrade ng-annotate-loader to babel-plugin-angularjs-annotate
+- [ ] Simplify dev setup. Maybe just run docker compose up and everything is set up?
 
 ## License
 
