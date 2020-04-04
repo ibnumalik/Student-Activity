@@ -24,15 +24,17 @@ These instructions will get you a copy of the project up and running on your loc
 
 Before you can run this app, you need several things installed.
 
-1. Node.js with npm.
+1. Node.js with yarn installed.
 
    1.1. Go through the [official website](https://nodejs.org/en/) to install Node.js.
 
-   1.2. If you have installed it then check whether it is properly installed using this command.
+   1.2. Visit [Yarn](https://yarnpkg.com/) to install the binary.
+
+   1.3. If you have installed it then check whether it is properly installed using this command.
 
    ```shell
    $ node -v
-   $ npm -v
+   $ yarn -v
    ```
 
 2. Docker
@@ -62,10 +64,10 @@ Alright, here we go. Let's install our app and get started!
    cd /path/to/my-project
    ```
 
-   2.1. Install npm dependencies
+   2.1. Install front end dependencies
 
    ```
-   npm install
+   yarn
    ```
 
    2.2. Duplicate `.env.example` file to `.env` file.
@@ -81,7 +83,7 @@ Alright, here we go. Let's install our app and get started!
 To start development server and see how it run
 
 ```
-npm run dev
+yarn dev
 ```
 
 The server will run on port `8008`. Open `http://localhost:8008` on your browser.
