@@ -1,11 +1,10 @@
 import { IAuthService } from './../../../auth/auth';
-import { AuthService } from './../../../auth/services/auth.service';
 import './app.component.scss';
 
 export class App implements ng.IComponentOptions {
-  static NAME:string = 'app';
-  template;
-  controller;
+  static NAME: string = 'app';
+  template: string;
+  controller: any;
 
   constructor() {
     this.template = require('./app.component.html');
@@ -13,13 +12,14 @@ export class App implements ng.IComponentOptions {
   }
 }
 
-export class AppController implements ng.IComponentController{
+export class AppController implements ng.IComponentController {
   public loggedIn: boolean;
 
-  constructor(private AuthService: IAuthService) { 'ngInject'; }
+  constructor(private AuthService: IAuthService) {
+    'ngInject';
+  }
 
   $doCheck() {
     this.loggedIn = this.AuthService.isLoggedIn();
   }
-
 }
