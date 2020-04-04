@@ -9,10 +9,10 @@
         </a>
     </div>
     <div class="navbar__right">
-        <a ui-sref="app.auth.login" class="navbar__item navbar__link" ng-show="!$ctrl.loggedIn">
+        <a ui-sref="app.auth.login" class="navbar__item navbar__link" ng-show="!$ctrl.isLoggedIn">
             Login
         </a>
-        <div ng-show="$ctrl.loggedIn">
+        <div ng-show="$ctrl.isLoggedIn">
             <a ui-sref="app.dashboard.student" class="navbar__item navbar__link">Dashboard</a>
             <a ui-sref="app.auth.logout" class="navbar__item navbar__link">
                 Log out
