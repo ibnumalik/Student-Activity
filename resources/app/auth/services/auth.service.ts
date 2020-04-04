@@ -15,7 +15,8 @@ export class AuthService {
           'Content-Type': 'application/x-www-form-urlencoded'
         }
     }
-    this.url = 'http://localhost:8080/api'
+    // Extract to env
+    this.url = 'http://school.local/api'
   }
 
   isLoggedIn() {
