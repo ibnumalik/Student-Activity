@@ -2,7 +2,7 @@ version: '2'
 
 services:
     web:
-        image: nginx:latest
+        image: nginx:1.17.9-alpine
         labels:
             - "traefik.enable=true"
             - "traefik.backend=student_activity_web"
@@ -16,7 +16,7 @@ services:
             - web
             - internal
     php:
-        image: php:7-fpm
+        image: php:7-fpm-alpine
         labels:
             - "traefik.enable=false"
         volumes:
@@ -24,7 +24,7 @@ services:
         networks:
             - internal
     composer:
-        image: composer/composer:php7
+        image: composer:1.10.1
         labels:
             - "traefik.enable=false"
         command: install --ignore-platform-reqs
