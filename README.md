@@ -78,6 +78,14 @@ Alright, here we go. Let's install our app and get started!
    docker-compose up -d
    ```
 
+3. Generate front end assets.
+
+```
+yarn production
+```
+
+4. Visit domain that you have set up in the .env file.
+
 ### Starting development
 
 To start development server and see how it run
