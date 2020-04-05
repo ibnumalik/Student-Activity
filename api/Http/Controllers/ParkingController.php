@@ -83,6 +83,6 @@ class ParkingController
 
     private function generateReceipt()
     {
-        return $this->getUser()->email.'-'.uniqid().uniqid();
+        return $this->getUser()->email . '-' . uniqid() . uniqid();
     }
 }
