@@ -12,6 +12,7 @@ import { NavbarComponent } from './components/header/nav.component';
  */
 import { configuration } from './core.configuration';
 import { routing } from './core.routes';
+import { AsyncAwaitAdapter } from "./core-async-await-adapter.run";
 
 export const coreModule =
   angular
@@ -29,4 +30,5 @@ export const coreModule =
      */
     .config(configuration)
     .config(routing)
+    .run(AsyncAwaitAdapter)
     .name;
