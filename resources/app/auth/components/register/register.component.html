@@ -1,38 +1,54 @@
 <div layout="column">
-    <md-card class="md-card--auth">
-        <md-card-title class="md-card--auth__header">
-            <md-card-title-text>
-                <h2 class="md-headline">Register</h2>
-            </md-card-title-text>
-        </md-card-title>
-        <md-divider></md-divider>
-        <md-card-content>
-            <form name="register" ng-submit="register.$valid && $ctrl.register()" novalidate>
-                <div class="form-error" ng-show="$ctrl.emailUsed">
-                    Email has been registered
-                </div>
-                <md-input-container class="md-block">
-                    <label>Email</label>
-                    <input type="email" ng-model="$ctrl.user.email" name="email" required>
-                    <div ng-messages="register.email.$error">
-                        <div ng-message="required"> Email is required </div>
-                        <div ng-message="email"> Please enter valid email </div>
-                    </div>
-                </md-input-container>
-                <md-input-container class="md-block">
-                    <label>Password</label>
-                    <input type="password" ng-model="$ctrl.user.password" name="password" required>
-                    <div ng-messages="register.password.$error">
-                        <div ng-message="required"> Password is required </div>
-                    </div>
-                </md-input-container>
-                <md-button type="submit" class="md-accent md-raised" ng-disabled="register.$invalid">
-                    Register
-                </md-button>
-            </form>
-        </md-card-content>
-    </md-card>
-    <p>
-        Already have account? <a ui-sref="app.auth.login">Log In</a>
-    </p>
+  <md-card class="md-card--auth">
+    <md-card-title class="md-card--auth__header">
+      <md-card-title-text>
+        <h2 class="md-headline">Register</h2>
+      </md-card-title-text>
+    </md-card-title>
+    <md-divider></md-divider>
+    <md-card-content>
+      <form
+        name="register"
+        ng-submit="register.$valid && $ctrl.register()"
+        novalidate
+      >
+        <div class="form-error" ng-show="$ctrl.emailUsed">
+          Email has been registered
+        </div>
+        <md-input-container class="md-block">
+          <label>Email</label>
+          <input
+            type="email"
+            ng-model="$ctrl.user.email"
+            name="email"
+            required
+          />
+          <div ng-messages="register.email.$error">
+            <div ng-message="required">Email is required</div>
+            <div ng-message="email">Please enter valid email</div>
+          </div>
+        </md-input-container>
+        <md-input-container class="md-block">
+          <label>Password</label>
+          <input
+            type="password"
+            ng-model="$ctrl.user.password"
+            name="password"
+            required
+          />
+          <div ng-messages="register.password.$error">
+            <div ng-message="required">Password is required</div>
+          </div>
+        </md-input-container>
+        <md-button
+          type="submit"
+          class="md-accent md-raised"
+          ng-disabled="register.$invalid"
+        >
+          Register
+        </md-button>
+      </form>
+    </md-card-content>
+  </md-card>
+  <p>Already have account? <a ui-sref="auth.login">Log In</a></p>
 </div>
