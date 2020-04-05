@@ -1,41 +1,50 @@
 <div class="parking-info">
-    <h1>Parking</h1>
+  <h1>Parking</h1>
 </div>
 
 <ul class="flex list-type-none">
-    <li class="parking-block" ng-repeat="(name, parking) in $ctrl.groupedParkingSpaces">
-        <h3 class="parking-block__title">
-            {{ name }}
-        </h3>
-        <ul class="flex flex-center list-type-none"
-            ng-select
-            ng-model="$ctrl.spaceSelected">
-            <li class="parking-spaces text-center"
-                ng-repeat="detail in parking"
-                ng-select-option="detail"
-                select-disabled="detail.rented === 'true'"
-                select-class="{
+  <li
+    class="parking-block"
+    ng-repeat="(name, parking) in $ctrl.groupedParkingSpaces"
+  >
+    <h3 class="parking-block__title">
+      {{ name }}
+    </h3>
+    <ul
+      class="flex flex-center list-type-none"
+      ng-select
+      ng-model="$ctrl.spaceSelected"
+    >
+      <li
+        class="parking-spaces text-center"
+        ng-repeat="detail in parking"
+        ng-select-option="detail"
+        select-disabled="detail.rented === 'true'"
+        select-class="{
                     'parking-spaces__selected': $optSelected,
                     'parking-spaces__rented': detail.rented === 'true'
-                }">
-                {{ detail.space_number }}
-            </li>
-        </ul>
-    </li>
+                }"
+      >
+        {{ detail.space_number }}
+      </li>
+    </ul>
+  </li>
 </ul>
 
 <div class="parking-info">
-    <h2 ng-show="!$ctrl.spaceSelected">Select your parking space.</h2>
-    <h2 ng-show="$ctrl.spaceSelected">
-        You select block {{ $ctrl.spaceSelected.block_name }} number {{ $ctrl.spaceSelected.space_number }}.
-    </h2>
+  <h2 ng-show="!$ctrl.spaceSelected">Select your parking space.</h2>
+  <h2 ng-show="$ctrl.spaceSelected">
+    You select block {{ $ctrl.spaceSelected.block_name }} number
+    {{ $ctrl.spaceSelected.space_number }}.
+  </h2>
 
-    <p ng-show="$ctrl.spaceSelected">The price will be RM 80.</p>
+  <p ng-show="$ctrl.spaceSelected">The price will be RM 80.</p>
 </div>
 
 <md-button
-    ng-disabled="!$ctrl.spaceSelected"
-    class="md-raised md-accent"
-    ng-click="$ctrl.continue()">
-    Continue
+  ng-disabled="!$ctrl.spaceSelected"
+  class="md-raised md-accent"
+  ng-click="$ctrl.continue()"
+>
+  Continue
 </md-button>
