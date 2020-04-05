@@ -3,6 +3,6 @@ export class Root implements ng.IComponentOptions {
   template: string;
 
   constructor() {
-    this.template = '<div layout="column" ui-view></div>';
+    this.template = '<div ui-view></div>';
   }
 }
