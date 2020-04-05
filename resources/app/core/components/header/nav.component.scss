@@ -1,20 +1,20 @@
 .navbar {
-    background: #009688;
-    padding: 15px 40px;
+  background: #009688;
+  padding: 15px 40px;
 
-    &__logo {
-        font-size: 20px;
-    }
+  &__logo {
+    font-size: 20px;
+  }
 
-    &__item {
-        color: rgba($color: #ffffff, $alpha: 0.9);
-        font-weight: 400;
-        &:not(:last-child) {
-            margin-right: 1rem;
-        }
+  &__item {
+    color: rgba($color: #ffffff, $alpha: 0.9);
+    font-weight: 400;
+    &:not(:last-child) {
+      margin-right: 1rem;
     }
+  }
 
-    &__link {
-        text-decoration: none;
-    }
+  &__link {
+    text-decoration: none;
+  }
 }
