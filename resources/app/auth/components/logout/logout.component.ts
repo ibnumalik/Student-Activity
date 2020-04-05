@@ -37,7 +37,7 @@ class LogoutController implements ng.IComponentController {
         if (response.status === 'fail') { return };
 
         this.$window.localStorage.clear();
-        this.$state.go('app.auth.login');
+        this.$state.go('app');
       });
   }
 

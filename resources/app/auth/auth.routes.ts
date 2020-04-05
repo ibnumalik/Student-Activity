@@ -1,28 +1,27 @@
-import { StateProvider, UrlRouterProvider } from "@uirouter/angularjs";
-import { AuthComponent } from "./auth.component";
-import { LoginComponent } from "./components/login/login.component";
-import { RegisterComponent } from "./components/register/register.component";
-import { LogoutComponent } from "./components/logout/logout.component";
+import { StateProvider } from '@uirouter/angularjs';
+import { AuthComponent } from './auth.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
-export const routing = ($stateProvider: StateProvider, $urlRouterProvider: UrlRouterProvider) => {
+export const routing = ($stateProvider: StateProvider) => {
   'ngInject';
 
   $stateProvider
-    .state('app.auth', {
+    .state('auth', {
       abstract: true,
-      url: '/auth',
-      component: AuthComponent.NAME
+      component: AuthComponent.NAME,
     })
-    .state('app.auth.login', {
+    .state('auth.login', {
       url: '/login',
-      component: LoginComponent.NAME
+      component: LoginComponent.NAME,
     })
-    .state('app.auth.register', {
+    .state('auth.register', {
       url: '/register',
-      component: RegisterComponent.NAME
+      component: RegisterComponent.NAME,
     })
-    .state('app.auth.logout', {
+    .state('logout', {
       url: '/logout',
-      component: LogoutComponent.NAME
+      component: LogoutComponent.NAME,
     });
-}
+};
