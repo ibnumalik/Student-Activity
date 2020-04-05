@@ -1,12 +1,12 @@
-import './auth.component.scss'
+import './auth.component.scss';
 
 export class AuthComponent implements ng.IComponentOptions {
-  static NAME:string = 'authComponent';
+  static NAME: string = 'authComponent';
   template: string;
 
   constructor() {
     this.template = `
-      <div class="auth-container">
+      <div class="auth">
         <div ui-view></div>
       </div>
     `;

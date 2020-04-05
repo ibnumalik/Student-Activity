@@ -1,25 +1,28 @@
-.auth-container {
-    width: 325px;
-    margin: 2rem auto;
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 95vh;
 }
 
 .md-card--auth {
-    .md-headline {
-        margin: 0;
-    }
+  .md-headline {
+    margin: 0;
+  }
 }
 
 .form-error {
-    color: rgb(221,44,0);
-    margin: 0.25rem 0 2rem;
-    text-align: center;
+  color: rgb(221, 44, 0);
+  margin: 0.25rem 0 2rem;
+  text-align: center;
 
-    &.ng-hide {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
+  &.ng-hide {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
 
-    &.ng-hide-add, &.ng-hide-remove {
-        transition: all linear 0.5s;
-    }
+  &.ng-hide-add,
+  &.ng-hide-remove {
+    transition: all linear 0.5s;
+  }
 }
