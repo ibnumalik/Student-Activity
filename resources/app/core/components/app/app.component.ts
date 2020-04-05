@@ -43,11 +43,15 @@ export class AppController implements ng.IComponentController {
    * Redirect to the correct auth state.
    */
   checkCorrectRoute($state: StateService) {
-    if (this.isLoggedIn) {
-      return $state.transitionTo('app.dashboard.student');
+    if (!this.isLoggedIn) {
+      return $state.transitionTo('auth.login');
     }
 
-    return $state.transitionTo('auth.login');
+    const inApp = $state.current.name === 'app';
+
+    if ($state.transition || inApp) {
+      return $state.transitionTo('app.dashboard.student');
+    }
   }
 
   /**
